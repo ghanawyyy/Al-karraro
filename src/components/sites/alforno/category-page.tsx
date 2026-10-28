@@ -5,6 +5,7 @@ import "./category.css";
 
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
+import { BackToTop } from "./back-to-top";
 import type { CategoryMenu } from "./category-menus";
 import { CategoryPager, CategoryRail } from "./category-nav";
 import { HauntLayer } from "./haunt-layer";
@@ -38,6 +39,7 @@ export function CategoryPage({ menu }: { menu: CategoryMenu }) {
       </main>
 
       <MenuFooter />
+      <BackToTop />
       <PortalReveal />
     </div>
   );

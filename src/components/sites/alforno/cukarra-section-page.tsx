@@ -8,6 +8,7 @@ import "./category.css";
 import "./cukarra.css";
 
 import { ArrowLeft } from "lucide-react";
+import { BackToTop } from "./back-to-top";
 import { CukarraPager, CukarraRail } from "./category-nav";
 import { CukarraEmblem, OrbitingBats } from "./cukarra-brand";
 import { HauntLayer } from "./haunt-layer";
@@ -54,6 +55,7 @@ export function CukarraSectionPage({ section }: { section: CukarraSection }) {
         <CukarraPager slug={section.slug} />
       </main>
 
+      <BackToTop />
       <PortalReveal />
     </div>
   );

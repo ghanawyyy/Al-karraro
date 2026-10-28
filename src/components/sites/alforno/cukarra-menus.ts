@@ -8,7 +8,7 @@ export interface CukarraSection {
 }
 
 // Extracted from saved snapshots of alfornogourmet.com/menu/sucara/<slug>/ (2026-10-28). Prices are stored
-// as bare numbers with a CSS "$" suffix there ("4", "7.5"); they are written out as "$4.00" here.
+// as bare numbers with a CSS "$" suffix there ("4", "7.5", "4,5"); they are written out as "$4.00" here.
 // "Alforno Specialties" was renamed; pages without filters (or opening on "all") start on their first list.
 export const cukarraSections: CukarraSection[] = [
   {
@@ -259,6 +259,195 @@ export const cukarraSections: CukarraSection[] = [
           { title: "Tiramisu Cup", price: "$4.00" },
           { title: "Trois Chocolat Cup", price: "$4.00" },
           { title: "Tarte Exotique", price: "$4.00" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "beverages",
+    title: "Beverages",
+    defaultTab: "soft-drinks",
+    tabs: [
+      {
+        id: "soft-drinks",
+        label: "Soft Drinks",
+        items: [
+          { title: "Water Small", price: "$1.50" },
+          { title: "St Pellegrino 330 ML", price: "$3.50" },
+          { title: "Pepsi", price: "$2.50" },
+          { title: "Energy Drink", price: "$4.50" },
+          { title: "Mirinda", price: "$2.50" },
+          { title: "Diet 7up", price: "$2.50" },
+          { title: "7up", price: "$2.50" },
+          { title: "Diet Pepsi", price: "$2.50" },
+        ],
+      },
+      {
+        id: "juices",
+        label: "Juices",
+        items: [
+          { title: "Lemonade", price: "$3.00" },
+          { title: "Strawberry", price: "$4.00" },
+          { title: "Cocktail", price: "$4.00", description: "Strawberry, Banana, Milk" },
+          { title: "Mango", price: "$4.50" },
+          { title: "Pomegrenate", price: "$5.50" },
+          { title: "Orange", price: "$3.50" },
+          { title: "Frozen lemonade", price: "$5.00" },
+        ],
+      },
+      {
+        id: "mocktails",
+        label: "Mocktails",
+        items: [
+          { title: "Hibiscus Iced Tea", price: "$4.50" },
+          { title: "Lemon Iced Tea", price: "$4.50" },
+          { title: "Peach Iced Tea", price: "$4.50" },
+        ],
+      },
+      {
+        id: "smoothies",
+        label: "Smoothies",
+        items: [
+          { title: "Classic Mango", price: "$7.00" },
+          { title: "Classic Strawberry", price: "$6.00" },
+          { title: "Mango Passion", price: "$8.00" },
+          { title: "Strawberry Lychee", price: "$7.00" },
+          { title: "Forest Fruits", price: "$7.00" },
+        ],
+      },
+      {
+        id: "milkshakes",
+        label: "Milkshakes",
+        items: [
+          { title: "Classics Vanilla", price: "$7.00" },
+          { title: "Classics Chocolate", price: "$7.00" },
+          { title: "Classics Strawberry", price: "$7.00" },
+          { title: "Lotus Salted Caramel", price: "$6.00" },
+        ],
+      },
+      {
+        id: "cold-coffee",
+        label: "Cold Coffee",
+        items: [
+          { title: "Classic Frappé Original", price: "$5.00" },
+          { title: "Classic Frappé Mocha", price: "$5.00" },
+          { title: "Classic Frappé Caramel", price: "$5.00" },
+          { title: "Classic Frappé White", price: "$5.00" },
+          { title: "Mocha Tiramisu", price: "$6.00" },
+          { title: "Iced Mocha", price: "$5.00" },
+          { title: "Iced Latte", price: "$5.00" },
+          { title: "Iced Matcha", price: "$5.00" },
+          { title: "Iced Spanish Latte", price: "$5.00" },
+          { title: "White Mocha", price: "$5.00" },
+          { title: "Macchiato", price: "$5.00" },
+          { title: "Toffee Nut Frappé", price: "$5.00" },
+        ],
+      },
+      {
+        id: "hot-coffee",
+        label: "Hot Coffee",
+        items: [
+          { title: "Espresso", price: "$2.50" },
+          { title: "Espresso Decaf", price: "$3.00" },
+          { title: "Doppio (Double Espresso)", price: "$3.50" },
+          { title: "Americano", price: "$4.00" },
+          { title: "Cappuccino", price: "$4.50" },
+          { title: "Latte", price: "$4.00" },
+          { title: "Flat White", price: "$4.00" },
+          { title: "Spanish Latte", price: "$5.00" },
+          { title: "Caramel Macchiato", price: "$5.00" },
+          { title: "Hot Chocolate", price: "$5.50" },
+          { title: "Hot Matcha", price: "$5.50" },
+          { title: "Tea Selection", price: "$2.20" },
+          { title: "White Coffee", price: "$2.50" },
+          { title: "Add On", description: "extra flavor, add syrup, sugar free syrup, extra espresso shot" },
+          { title: "Macchiato", price: "$5.00" },
+          { title: "White Mocha", price: "$5.00" },
+          { title: "Pumpkin Latte", price: "$6.00" },
+          { title: "Toffee Nut Latte", price: "$6.00" },
+        ],
+      },
+      {
+        id: "affogato",
+        label: "Affogato",
+        items: [
+          { title: "Vanilla Espresso Affogato", price: "$5.50" },
+          { title: "Caramel Espresso Affogato", price: "$6.50" },
+        ],
+      },
+      {
+        id: "add-on-extra-flavors",
+        label: "Add On Extra Flavors",
+        items: [
+          { title: "Add Vanilla Syrup", price: "$1.00" },
+          { title: "Add Hazelnut Syrup", price: "$1.00" },
+          { title: "Add Caramel Syrup", price: "$1.00" },
+          { title: "Sugar Free Vanilla Syrup", price: "$1.00" },
+          { title: "Sugar Free Caramel Syrup", price: "$1.00" },
+          { title: "Extra Espresso Shot", price: "$1.50" },
+          { title: "Extra Milk", price: "$1.50" },
+          { title: "Extra Oat Milk", price: "$2.50" },
+          { title: "Extra Soya Milk", price: "$2.50" },
+          { title: "Extra Almond Milk", price: "$2.50" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "frisco-swirls",
+    title: "Frisco & Swirls",
+    defaultTab: "frisco",
+    tabs: [
+      {
+        id: "frisco",
+        label: "Frisco",
+        items: [
+          { title: "Strawberry Mint – 250 ml", price: "$3.00" },
+          { title: "Lemonade – 250 ml", price: "$3.00" },
+          { title: "Cola – 250 ml", price: "$3.00" },
+          { title: "Mango Passion Fruit – 250 ml", price: "$3.00" },
+          { title: "Passion Fruit – 250 ml", price: "$3.00" },
+          { title: "Strawberry Lychee – 250 ml", price: "$3.00" },
+          { title: "Sweet Melon – 250 ml", price: "$3.00" },
+          { title: "Watermelon – 250 ml", price: "$3.00" },
+        ],
+      },
+      {
+        id: "sluches-fresh-fruits",
+        label: "Sluches Fresh Fruits",
+        items: [
+          { title: "Mango Passion – 250 ml", price: "$4.00" },
+          { title: "Strawberry – 250 ml", price: "$4.00" },
+        ],
+      },
+      {
+        id: "swirls",
+        label: "Swirls",
+        items: [
+          { title: "Matcha Swirl – 250 ml", price: "$4.50" },
+          { title: "Toffee Nut Swirl – 250 ml", price: "$4.50" },
+          { title: "Cookies & Cream Swirl – 250 ml", price: "$4.50" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "ice-cream",
+    title: "Ice Cream",
+    defaultTab: "all",
+    tabs: [
+      {
+        id: "all",
+        label: "Ice Cream",
+        items: [
+          { title: "Ice Cream 1 Scoop", price: "$2.09" },
+          { title: "Pistachio Ice Cream 1 Scoop", price: "$3.30" },
+          { title: "Lemon Glacée", price: "$6.60", description: "sugar free jars" },
+          { title: "Passion Fruit Glacée", price: "$6.60", description: "sugar free jars" },
+          { title: "Pink Grapefruit Glacée", price: "$6.60", description: "sugar free jars" },
+          { title: "Dark Chocolate Glacée", price: "$6.60", description: "sugar free jars" },
+          { title: "Vanilla Glacée", price: "$6.60", description: "sugar free jars" },
+          { title: "Watermelon Glacée", price: "$6.60", description: "sugar free jars" },
         ],
       },
     ],

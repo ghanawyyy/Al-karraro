@@ -10,9 +10,9 @@ export const cukarraLanding: { title: string; icon: LucideIcon; slug?: string }[
   { title: "Sushi", icon: Fish, slug: "sushi" },
   { title: "Viennoiserie", icon: Croissant, slug: "viennoiserie" },
   { title: "Cakes", icon: CakeSlice, slug: "cakes" },
-  { title: "Beverages", icon: Coffee },
-  { title: "Frisco & Swirls", icon: IceCreamBowl },
-  { title: "Ice Cream", icon: IceCreamCone },
+  { title: "Beverages", icon: Coffee, slug: "beverages" },
+  { title: "Frisco & Swirls", icon: IceCreamBowl, slug: "frisco-swirls" },
+  { title: "Ice Cream", icon: IceCreamCone, slug: "ice-cream" },
 ];
 
 export const cukarraLinks: NavLink[] = cukarraLanding

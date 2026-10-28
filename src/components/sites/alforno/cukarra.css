@@ -92,6 +92,11 @@
   .ak-cukarra .menu-box { padding: 12px 25px; }
 }
 
+@media (max-width: 600px) {
+  /* clear the fixed back button, which would otherwise cover the wordmark's "C" */
+  .ak-cukarra .logo { padding-top: 44px; }
+}
+
 @media (max-width: 480px) {
   .ak-cukarra .container { padding: 15px; }
   .ak-cukarra .menu-box { padding: 12px 20px; }

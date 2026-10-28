@@ -24,6 +24,7 @@ export function MenuTabs({ tabs, defaultTab, label }: MenuTabsProps) {
   const [activeId, setActiveId] = useState(defaultTab);
   const [sweep, setSweep] = useState({ count: 0, reverse: false });
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
+  const panelRef = useRef<HTMLElement>(null);
   const active = tabs.find((tab) => tab.id === activeId) ?? tabs[0];
 
   function selectTab(index: number) {
@@ -32,6 +33,13 @@ export function MenuTabs({ tabs, defaultTab, label }: MenuTabsProps) {
     setActiveId(tabs[index].id);
     // The fog and bats travel the way the tabs moved: rightward for a later tab, leftward for an earlier one.
     setSweep((s) => ({ count: s.count + 1, reverse: index < from }));
+    // On phones a long tab list can push the new list below the fold; glide it into view.
+    requestAnimationFrame(() => {
+      const panel = panelRef.current;
+      if (!panel || panel.getBoundingClientRect().top < window.innerHeight - 160) return;
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      panel.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    });
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
@@ -74,7 +82,7 @@ export function MenuTabs({ tabs, defaultTab, label }: MenuTabsProps) {
         })}
       </div>
 
-      <section className="ak-menu-panel" role="tabpanel" id="ak-tab-panel" aria-labelledby={`ak-tab-${active.id}`}>
+      <section ref={panelRef} className="ak-menu-panel" role="tabpanel" id="ak-tab-panel" aria-labelledby={`ak-tab-${active.id}`}>
         {sweep.count > 0 && (
           <div key={sweep.count} className={sweep.reverse ? "ak-sweep ak-sweep-reverse" : "ak-sweep"} aria-hidden="true">
             <div className="ak-sweep-fog" />
