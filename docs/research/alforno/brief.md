@@ -22,8 +22,8 @@
 | `/menu/shisha/` | `/shisha` | same |
 | `/menu/kids/` | `/kids` | same |
 | `/menu/cigar-lounge/` | `/cigar-lounge` | same |
-| `/menu/sucara/` | `/sucara` | `src/app/sucara/page.tsx`, `sucara-page.tsx`, `sucara.css` |
-| `/menu/sucara/<section>/` (food-bites, salads, sushi, viennoiserie, cakes) | `/sucara/<section>` | `src/app/sucara/[section]/page.tsx`, `sucara-section-page.tsx`, `sucara-menus.ts` |
+| `/menu/sucara/` | `/cukarra` (`/sucara` redirects) | `src/app/cukarra/page.tsx`, `cukarra-page.tsx`, `cukarra.css` |
+| `/menu/sucara/<section>/` (food-bites, salads, sushi, viennoiserie, cakes) | `/cukarra/<section>` | `src/app/cukarra/[section]/page.tsx`, `cukarra-section-page.tsx`, `cukarra-menus.ts` |
 
 Menu data for these pages lives in `src/components/sites/alforno/category-menus.ts` (extracted from the
 saved snapshots; every tab's item count matches the source's `data-count`). Every category on the menu now has a page. Suc'ara's eight sections (Food Bites … Ice Cream) are not
@@ -65,9 +65,18 @@ cloned yet and show a "still brewing" toast.
 - Its own landing: lilac petal pattern, Suc'ara wordmark, eight filled boxes, no footer.
 - Rebuilt 1:1 in layout (box geometry matches at 1440 and 390) with the pattern mapped to night purple,
   the wordmark in bone with a pumpkin apostrophe, purple boxes with pumpkin icons, and Questrial for
-  ITC Avant Garde. Originals kept in `public/sites/alforno/sucara/*-original.*`.
+  ITC Avant Garde. Originals kept in `public/sites/alforno/cukarra/sucara-*-original.*`.
 
-## Suc'ara sections
+## Rebrand: Suc'ara → Cukarra (requested)
+- Every visible "Suc'ara" is now "Cukarra"; routes moved to `/cukarra` with permanent redirects from `/sucara`.
+- The wordmark and the round badge are SVGs (`cukarra-brand.tsx`): "CUKARRA / Artisan Confections" in Cinzel
+  with a pumpkin "C", and a script "C" (Pinyon Script) inside a slowly spinning "taking sweet moments to
+  another level" ring. Source PNGs stay in `public/sites/alforno/cukarra/sucara-*-original.*`.
+- Extra motion on Cukarra pages: bats circling the wordmark/badge, a glowing wordmark, a flickering "C",
+  cobwebs and dangling spiders, and fog drifting through the section banner. Drifting fog banks were also
+  added to the shared scenery on every page.
+
+## Suc'ara (Cukarra) sections
 - Source: petal-pattern header (`sucara-logo-web-banner…jpg`), the 100px "S" emblem, filters and a lilac
   price list in ITC Avant Garde; the site footer is hidden on these pages (so it is left out here too).
 - Rebuilt with the pattern in night purple, the emblem ring in bone with a pumpkin "S", lilac chips and

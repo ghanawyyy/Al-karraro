@@ -4,7 +4,7 @@ import type { NavLink } from "./category-nav";
 
 // Order and labels copied from alfornogourmet.com/menu/sucara/ (saved 2026-10-28).
 // `slug` is set once that section's page is cloned (source: /menu/sucara/<slug>/).
-export const sucaraLanding: { title: string; icon: LucideIcon; slug?: string }[] = [
+export const cukarraLanding: { title: string; icon: LucideIcon; slug?: string }[] = [
   { title: "Food Bites", icon: Sandwich, slug: "food-bites" },
   { title: "Salads", icon: Salad, slug: "salads" },
   { title: "Sushi", icon: Fish, slug: "sushi" },
@@ -15,6 +15,6 @@ export const sucaraLanding: { title: string; icon: LucideIcon; slug?: string }[]
   { title: "Ice Cream", icon: IceCreamCone },
 ];
 
-export const sucaraLinks: NavLink[] = sucaraLanding
+export const cukarraLinks: NavLink[] = cukarraLanding
   .filter((section) => section.slug)
-  .map((section) => ({ href: `/sucara/${section.slug}`, title: section.title, icon: section.icon }));
+  .map((section) => ({ href: `/cukarra/${section.slug}`, title: section.title, icon: section.icon }));

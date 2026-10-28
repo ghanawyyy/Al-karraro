@@ -9,6 +9,8 @@ const ghosts = ["ak-ghost-1", "ak-ghost-2", "ak-ghost-3"];
 export function HauntLayer() {
   return (
     <div className="ak-haunt" aria-hidden="true">
+      <div className="ak-fog ak-fog-back" />
+      <div className="ak-fog ak-fog-front" />
       <div className="ak-lightning" />
       <LightningBolt className="ak-bolt" />
       <div className="ak-moon" />

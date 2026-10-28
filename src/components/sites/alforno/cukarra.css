@@ -1,0 +1,297 @@
+/*
+ * Cukarra landing (source: alfornogourmet.com/menu/sucara/). Source values: lilac petal pattern
+ * (Sucara-Homepage-Background.jpg) cover/fixed; container max 750px + 20px padding (15px ≤480);
+ * logo 175px; boxes filled rgb(105, 93, 118), padding 14px 30px, radius 3px, 12px gap;
+ * h2 ITC Avant Garde Gothic Book 1.4em, ls 2px, rgb(246, 244, 246). Questrial stands in for the font.
+ */
+.ak-cukarra-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background: #12091a url("/sites/alforno/cukarra/cukarra-pattern-spooky.jpg") center / cover no-repeat;
+}
+
+.ak-cukarra-main {
+  position: relative;
+  z-index: 1;
+  flex: 1 0 auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ak-cukarra .container {
+  padding: 20px;
+}
+
+.ak-cukarra .logo {
+  margin-bottom: 30px;
+}
+
+.ak-cukarra .logo {
+  position: relative;
+}
+
+.ak-cukarra-wordmark {
+  display: inline-block;
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+  overflow: visible;
+  animation: ak-brand-glow 3.2s ease-in-out infinite alternate;
+}
+
+.ak-cukarra-name {
+  font-family: Cinzel, "IM Fell English", serif;
+  font-size: 88px;
+  fill: var(--ak-bone);
+}
+
+.ak-cukarra-c {
+  fill: var(--ak-pumpkin);
+}
+
+.ak-cukarra-tagline {
+  font-family: Cinzel, "IM Fell English", serif;
+  font-size: 19px;
+  fill: rgb(243 227 195 / 85%);
+}
+
+@keyframes ak-brand-glow {
+  from { filter: drop-shadow(0 0 6px rgb(243 227 195 / 25%)); }
+  to { filter: drop-shadow(0 0 16px rgb(232 114 28 / 60%)); }
+}
+
+.ak-cukarra .menu-options {
+  margin-bottom: 60px;
+}
+
+.ak-cukarra .menu-box {
+  border: 0;
+  padding: 14px 30px;
+  background: linear-gradient(180deg, rgb(91 31 115 / 92%), rgb(62 20 82 / 92%));
+  backdrop-filter: none;
+  box-shadow: inset 0 0 0 1px rgb(232 114 28 / 45%), 0 4px 14px rgb(0 0 0 / 35%);
+}
+
+.ak-cukarra .menu-box:hover {
+  box-shadow:
+    inset 0 0 0 1px var(--ak-pumpkin),
+    0 8px 20px rgb(0 0 0 / 45%),
+    0 0 18px rgb(232 114 28 / 45%);
+}
+
+.ak-cukarra .menu-box h2 {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: var(--ak-bone);
+}
+
+@media (max-width: 768px) {
+  .ak-cukarra .menu-box { padding: 12px 25px; }
+}
+
+@media (max-width: 480px) {
+  .ak-cukarra .container { padding: 15px; }
+  .ak-cukarra .menu-box { padding: 12px 20px; }
+}
+
+/*
+ * Cukarra section pages (source: /menu/sucara/<slug>/): 256px petal-pattern header, the 100px "S"
+ * emblem, filters in Avant Garde Book 13px/700 rgb(141, 143, 144), titles Avant Garde Medium 13px
+ * rgb(105, 93, 118) on rgb(246, 244, 246) chips, prices with a CSS "$" suffix, notes 12px.
+ */
+.ak-cukarra-section {
+  background-color: #12091a;
+}
+
+.ak-cukarra-banner {
+  width: 100%;
+  height: clamp(256px, 26vw, 376px);
+  background: url("/sites/alforno/cukarra/cukarra-banner-spooky.jpg") center / cover no-repeat;
+  mask-image: linear-gradient(to bottom, #000 72%, transparent);
+}
+
+.ak-cukarra-emblem {
+  position: relative;
+  width: 116px;
+  height: 116px;
+  margin: 28px auto 18px;
+}
+
+.ak-cukarra-emblem-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.ak-cukarra-ring-text {
+  font-family: Cinzel, serif;
+  font-size: 6px;
+  fill: var(--ak-bone);
+}
+
+.ak-cukarra-ring-spin {
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: ak-ring-spin 40s linear infinite;
+}
+
+.ak-cukarra-emblem-c {
+  font-family: "Pinyon Script", Cinzel, serif;
+  font-size: 66px;
+  fill: var(--ak-pumpkin);
+  animation: ak-candle 2.4s steps(1, end) infinite;
+}
+
+@keyframes ak-ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Bats circling the wordmark / emblem ---------- */
+.ak-orbit {
+  --rx: 82px;
+  --ry: 82px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.ak-cukarra .logo .ak-orbit {
+  --rx: 150px;
+  --ry: 50px;
+}
+
+.ak-orbit-arm {
+  position: absolute;
+  animation: ak-orbit-x 6s ease-in-out infinite alternate;
+}
+
+.ak-orbit-bat {
+  display: block;
+  width: 32px;
+  height: auto;
+  margin: -9px 0 0 -16px;
+  color: #2a1238;
+  filter: drop-shadow(0 0 2px var(--ak-pumpkin)) drop-shadow(0 0 8px rgb(232 114 28 / 85%));
+  animation:
+    ak-orbit-y 6s ease-in-out infinite alternate -3s,
+    ak-flap 0.2s ease-in-out infinite alternate;
+}
+
+.ak-orbit-2 { animation-delay: -4s; }
+.ak-orbit-2 .ak-orbit-bat { width: 24px; animation-delay: -7s, 0s; }
+.ak-orbit-3 { animation-delay: -8s; }
+.ak-orbit-3 .ak-orbit-bat { width: 28px; animation-delay: -11s, 0s; }
+
+@keyframes ak-orbit-x {
+  from { transform: translateX(calc(var(--rx) * -1)); }
+  to { transform: translateX(var(--rx)); }
+}
+
+@keyframes ak-orbit-y {
+  from { translate: 0 calc(var(--ry) * -1); }
+  to { translate: 0 var(--ry); }
+}
+
+/* ---------- Banner fog, webs and spider (section pages) ---------- */
+.ak-cukarra-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.ak-banner-fog {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 200%;
+  height: 70%;
+  background:
+    radial-gradient(ellipse 22% 55% at 15% 85%, rgb(214 196 240 / 32%), transparent 70%),
+    radial-gradient(ellipse 28% 60% at 45% 95%, rgb(190 170 230 / 26%), transparent 72%),
+    radial-gradient(ellipse 18% 45% at 75% 80%, rgb(226 212 250 / 30%), transparent 70%);
+  background-size: 50% 100%;
+  filter: blur(8px);
+  animation: ak-fog-drift 26s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-cukarra-wordmark,
+  .ak-cukarra-ring-spin,
+  .ak-cukarra-emblem-c,
+  .ak-banner-fog {
+    animation: none;
+  }
+
+  .ak-orbit {
+    display: none;
+  }
+}
+
+.ak-cukarra-section .ak-tab {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: rgb(214 200 232 / 72%);
+}
+
+.ak-cukarra-section .ak-tab:hover {
+  color: rgb(236 226 248);
+}
+
+.ak-cukarra-section .ak-tab-active {
+  color: var(--ak-pumpkin);
+}
+
+.ak-cukarra-section .ak-menu-panel {
+  border-color: rgb(170 140 210 / 30%);
+  background: rgb(18 9 26 / 80%);
+  box-shadow: inset 0 0 40px rgb(91 31 115 / 45%), 0 10px 40px rgb(0 0 0 / 45%);
+}
+
+.ak-cukarra-section .ak-tab-heading {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.ak-cukarra-section .ak-item-head {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.ak-cukarra-section .ak-item-chip {
+  background: rgb(150 120 190 / 24%);
+  color: rgb(236 226 248);
+}
+
+.ak-cukarra-section .ak-item-leader {
+  border-bottom-color: rgb(190 160 230 / 45%);
+}
+
+.ak-cukarra-section .ak-item-desc {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.75px;
+  color: rgb(220 205 240 / 80%);
+}
+
+@media (max-width: 767px) {
+  .ak-cukarra-section .ak-tab-heading { font-size: 20px; letter-spacing: 3px; }
+}
+
+.ak-cukarra .ak-back,
+.ak-cukarra-section .ak-rail-chip,
+.ak-cukarra-section .ak-pager-link {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.75px;
+}

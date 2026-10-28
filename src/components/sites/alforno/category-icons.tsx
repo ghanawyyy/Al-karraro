@@ -76,6 +76,6 @@ export const categoryIcons: Record<MenuCategoryId, LucideIcon | ComponentType<Ic
   drinks: Martini,
   shisha: HookahIcon,
   "take-away-only": ShoppingBag,
-  "sucara-coffee-shop": Coffee,
+  "cukarra-coffee-shop": Coffee,
   "cigar-lounge": CigarIcon,
 };

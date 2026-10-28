@@ -6,7 +6,7 @@ import { useEffect, useRef, type ComponentType } from "react";
 import { categoryIcons } from "./category-icons";
 import { menuCategories, type MenuCategoryId } from "./menu-data";
 import { SpookyLink } from "./spooky-link";
-import { sucaraLinks } from "./sucara-sections";
+import { cukarraLinks } from "./cukarra-sections";
 
 export interface NavLink {
   href: string;
@@ -86,10 +86,10 @@ export function CategoryPager({ current }: { current: MenuCategoryId }) {
   return <NavPager links={categoryLinks} current={currentHref(current)} label="More categories" />;
 }
 
-export function SucaraRail({ slug }: { slug: string }) {
-  return <NavRail links={sucaraLinks} current={`/sucara/${slug}`} label="Suc'ara sections" />;
+export function CukarraRail({ slug }: { slug: string }) {
+  return <NavRail links={cukarraLinks} current={`/cukarra/${slug}`} label="Cukarra sections" />;
 }
 
-export function SucaraPager({ slug }: { slug: string }) {
-  return <NavPager links={sucaraLinks} current={`/sucara/${slug}`} label="More Suc'ara sections" />;
+export function CukarraPager({ slug }: { slug: string }) {
+  return <NavPager links={cukarraLinks} current={`/cukarra/${slug}`} label="More Cukarra sections" />;
 }

@@ -11,7 +11,7 @@ export type MenuCategoryId =
   | "drinks"
   | "shisha"
   | "take-away-only"
-  | "sucara-coffee-shop"
+  | "cukarra-coffee-shop"
   | "cigar-lounge";
 
 export interface MenuCategory {
@@ -37,7 +37,7 @@ export const menuCategories: MenuCategory[] = [
   { id: "drinks", title: "Drinks", slug: "drinks" },
   { id: "shisha", title: "Shisha", slug: "shisha" },
   { id: "take-away-only", title: "Take Away Only", hidden: true },
-  { id: "sucara-coffee-shop", title: "Suc'ara Coffee Shop", slug: "sucara" },
+  { id: "cukarra-coffee-shop", title: "Cukarra Coffee Shop", slug: "cukarra" },
   { id: "cigar-lounge", title: "Cigar Lounge", slug: "cigar-lounge" },
 ];
 

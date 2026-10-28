@@ -1,6 +1,6 @@
 import type { MenuTab } from "./category-menus";
 
-export interface SucaraSection {
+export interface CukarraSection {
   slug: string;
   title: string;
   defaultTab: string;
@@ -10,7 +10,7 @@ export interface SucaraSection {
 // Extracted from saved snapshots of alfornogourmet.com/menu/sucara/<slug>/ (2026-10-28). Prices are stored
 // as bare numbers with a CSS "$" suffix there ("4", "7.5"); they are written out as "$4.00" here.
 // "Alforno Specialties" was renamed; pages without filters (or opening on "all") start on their first list.
-export const sucaraSections: SucaraSection[] = [
+export const cukarraSections: CukarraSection[] = [
   {
     slug: "food-bites",
     title: "Food Bites",
@@ -265,6 +265,6 @@ export const sucaraSections: SucaraSection[] = [
   },
 ];
 
-export function getSucaraSection(slug: string) {
-  return sucaraSections.find((section) => section.slug === slug);
+export function getCukarraSection(slug: string) {
+  return cukarraSections.find((section) => section.slug === slug);
 }

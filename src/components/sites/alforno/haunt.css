@@ -7,6 +7,44 @@
   pointer-events: none;
 }
 
+/* ---------- Drifting fog banks (tiles every 50% of their width, so a -50% drift loops seamlessly) ---------- */
+.ak-fog {
+  position: absolute;
+  left: 0;
+  width: 200%;
+  background-size: 50% 100%;
+  background-repeat: repeat-x;
+  filter: blur(12px);
+  animation: ak-fog-drift 60s linear infinite;
+}
+
+.ak-fog-back {
+  bottom: -4vh;
+  height: 38vh;
+  opacity: 0.75;
+  background-image:
+    radial-gradient(ellipse 20% 55% at 10% 80%, rgb(200 184 236 / 40%), transparent 70%),
+    radial-gradient(ellipse 26% 60% at 38% 90%, rgb(170 146 220 / 34%), transparent 72%),
+    radial-gradient(ellipse 18% 50% at 66% 78%, rgb(214 200 245 / 38%), transparent 70%),
+    radial-gradient(ellipse 22% 55% at 90% 88%, rgb(180 160 226 / 34%), transparent 72%);
+}
+
+.ak-fog-front {
+  top: 46vh;
+  height: 22vh;
+  opacity: 0.45;
+  animation-duration: 90s;
+  animation-direction: reverse;
+  background-image:
+    radial-gradient(ellipse 16% 40% at 20% 50%, rgb(226 214 250 / 40%), transparent 70%),
+    radial-gradient(ellipse 22% 35% at 70% 55%, rgb(200 184 236 / 32%), transparent 72%);
+}
+
+@keyframes ak-fog-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
 /* ---------- Moon + witch ---------- */
 .ak-moon {
   position: absolute;
@@ -459,6 +497,7 @@
   .ak-witch-svg,
   .ak-lantern,
   .ak-jack-face,
+  .ak-fog,
   .ak-brew-shake {
     animation: none;
   }
