@@ -77,6 +77,8 @@ cloned yet and show a "still brewing" toast.
 - Tap a category: pumpkin pops at the tap point, bats scatter, a witch swoops across, a portal closes
   over the screen and the pumpkin moves to the center (`spooky-link.tsx`).
 - Next page: the pumpkin bursts and the portal opens (`portal-reveal.tsx`).
+- Section tabs: a ghostly fog wisp and five bats sweep the list (rightward for a later tab, leftward
+  for an earlier one) while the items rise out of the fog (`menu-tabs.tsx`, `.ak-sweep*`).
 - Ambient: witch crossing the moon, phasing ghosts with glowing eyes, candle-lit jack-o'-lanterns,
   two soft lightning flashes every 11s (`haunt-layer.tsx`, `haunt.css`).
 - `prefers-reduced-motion` turns off all of it and links navigate immediately.

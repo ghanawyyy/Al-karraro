@@ -127,6 +127,7 @@
 
 /* ---------- Items panel ---------- */
 .ak-menu-panel {
+  position: relative;
   padding: 28px 32px 36px;
   border: 1px solid rgb(232 114 28 / 35%);
   border-radius: 8px;
@@ -264,10 +265,74 @@
   .ak-item-head { font-size: 14px; letter-spacing: 0.75px; }
 }
 
+/* ---------- Section switch: a ghostly fog sweeps the list while bats flutter across ---------- */
+.ak-sweep {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.ak-sweep-fog {
+  position: absolute;
+  top: -15%;
+  bottom: -15%;
+  left: 0;
+  width: 70%;
+  background:
+    radial-gradient(ellipse 50% 30% at 50% 12%, rgb(240 230 255 / 70%), transparent 70%),
+    radial-gradient(ellipse at center, rgb(226 212 255 / 55%), rgb(150 110 210 / 32%) 42%, transparent 72%);
+  filter: blur(14px);
+  opacity: 0;
+  animation: ak-fog-sweep 0.65s ease-in-out forwards;
+}
+
+@keyframes ak-fog-sweep {
+  0% { transform: translateX(-75%); opacity: 0; }
+  25% { opacity: 1; }
+  75% { opacity: 0.85; }
+  100% { transform: translateX(195%); opacity: 0; }
+}
+
+.ak-sweep-bat {
+  position: absolute;
+  top: var(--y);
+  left: -60px;
+  width: var(--s);
+  color: #2a1238;
+  opacity: 0;
+  filter: drop-shadow(0 0 1.5px var(--ak-pumpkin)) drop-shadow(0 0 7px rgb(232 114 28 / 80%));
+  animation: ak-bat-sweep 0.6s cubic-bezier(0.35, 0.1, 0.45, 1) var(--d) forwards;
+}
+
+.ak-sweep-bat svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: ak-flap 0.12s ease-in-out infinite alternate;
+}
+
+@keyframes ak-bat-sweep {
+  0% { left: -60px; transform: translateY(0) rotate(-8deg); opacity: 1; }
+  50% { transform: translateY(-14px) rotate(6deg); }
+  100% { left: calc(100% + 60px); transform: translateY(4px) rotate(-4deg); opacity: 1; }
+}
+
+.ak-sweep-reverse .ak-sweep-fog,
+.ak-sweep-reverse .ak-sweep-bat {
+  animation-direction: reverse;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ak-tab-heading,
   .ak-item {
     animation: none;
+  }
+
+  .ak-sweep {
+    display: none;
   }
 }
 

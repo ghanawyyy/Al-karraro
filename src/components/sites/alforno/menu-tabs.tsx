@@ -2,7 +2,16 @@
 
 import { useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import type { MenuTab } from "./category-menus";
-import { JackOLantern } from "./spooky-symbols";
+import { Bat, JackOLantern } from "./spooky-symbols";
+
+// Bats that flutter across the top of the list while the fog sweeps it (offset, size, delay).
+const sweepBats = [
+  { "--y": "14px", "--s": "44px", "--d": "0ms" },
+  { "--y": "70px", "--s": "30px", "--d": "80ms" },
+  { "--y": "118px", "--s": "38px", "--d": "30ms" },
+  { "--y": "176px", "--s": "26px", "--d": "140ms" },
+  { "--y": "226px", "--s": "34px", "--d": "60ms" },
+];
 
 interface MenuTabsProps {
   tabs: MenuTab[];
@@ -13,8 +22,17 @@ interface MenuTabsProps {
 /** Source: the isotope ".menu-filter" buttons that filter ".loop-menus" articles by sub-category. */
 export function MenuTabs({ tabs, defaultTab, label }: MenuTabsProps) {
   const [activeId, setActiveId] = useState(defaultTab);
+  const [sweep, setSweep] = useState({ count: 0, reverse: false });
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const active = tabs.find((tab) => tab.id === activeId) ?? tabs[0];
+
+  function selectTab(index: number) {
+    const from = tabs.findIndex((tab) => tab.id === active.id);
+    if (index === from) return;
+    setActiveId(tabs[index].id);
+    // The fog and bats travel the way the tabs moved: rightward for a later tab, leftward for an earlier one.
+    setSweep((s) => ({ count: s.count + 1, reverse: index < from }));
+  }
 
   function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
     const keys: Record<string, number> = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
@@ -25,7 +43,7 @@ export function MenuTabs({ tabs, defaultTab, label }: MenuTabsProps) {
     else if (event.key === "End") next = tabs.length - 1;
     if (next === undefined) return;
     event.preventDefault();
-    setActiveId(tabs[next].id);
+    selectTab(next);
     tabRefs.current[next]?.focus();
   }
 
@@ -48,7 +66,7 @@ export function MenuTabs({ tabs, defaultTab, label }: MenuTabsProps) {
               aria-controls="ak-tab-panel"
               tabIndex={selected ? 0 : -1}
               className={selected ? "ak-tab ak-tab-active" : "ak-tab"}
-              onClick={() => setActiveId(tab.id)}
+              onClick={() => selectTab(i)}
             >
               {tab.label}
             </button>
@@ -57,6 +75,16 @@ export function MenuTabs({ tabs, defaultTab, label }: MenuTabsProps) {
       </div>
 
       <section className="ak-menu-panel" role="tabpanel" id="ak-tab-panel" aria-labelledby={`ak-tab-${active.id}`}>
+        {sweep.count > 0 && (
+          <div key={sweep.count} className={sweep.reverse ? "ak-sweep ak-sweep-reverse" : "ak-sweep"} aria-hidden="true">
+            <div className="ak-sweep-fog" />
+            {sweepBats.map((style, i) => (
+              <div key={i} className="ak-sweep-bat" style={style as CSSProperties}>
+                <Bat />
+              </div>
+            ))}
+          </div>
+        )}
         <h2 className="ak-tab-heading" key={`h-${active.id}`}>
           <JackOLantern className="ak-tab-pumpkin" />
           <span>{active.label}</span>
