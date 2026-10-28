@@ -20,10 +20,13 @@
 | `/menu/dessert/` | `/dessert` | same |
 | `/menu/drinks/` | `/drinks` | same |
 | `/menu/shisha/` | `/shisha` | same |
+| `/menu/kids/` | `/kids` | same |
+| `/menu/cigar-lounge/` | `/cigar-lounge` | same |
+| `/menu/sucara/` | `/sucara` | `src/app/sucara/page.tsx`, `sucara-page.tsx`, `sucara.css` |
 
 Menu data for these pages lives in `src/components/sites/alforno/category-menus.ts` (extracted from the
-saved snapshots; every tab's item count matches the source's `data-count`). Kids,
-Suc'ara Coffee Shop and Cigar Lounge are not cloned yet and show a "still brewing" toast.
+saved snapshots; every tab's item count matches the source's `data-count`). Every category on the menu now has a page. Suc'ara's eight sections (Food Bites … Ice Cream) are not
+cloned yet and show a "still brewing" toast.
 
 ## Page structure (source)
 1. Logo `Al-Forno-logo-website.png` (501×160, shown at 175px wide)
@@ -57,6 +60,15 @@ Suc'ara Coffee Shop and Cigar Lounge are not cloned yet and show a "still brewin
   napkin/box logos blurred (`public/sites/alforno/banners/`); tabs as an accessible tablist; items in
   1/2/3 columns (the source uses a single 30%-wide column); no photo layer on category pages.
 
+## Suc'ara (different design on the source)
+- Its own landing: lilac petal pattern, Suc'ara wordmark, eight filled boxes, no footer.
+- Rebuilt 1:1 in layout (box geometry matches at 1440 and 390) with the pattern mapped to night purple,
+  the wordmark in bone with a pumpkin apostrophe, purple boxes with pumpkin icons, and Questrial for
+  ITC Avant Garde. Originals kept in `public/sites/alforno/sucara/*-original.*`.
+
+## Contact details (requested changes, every page with the footer)
+- WhatsApp mark recolored pumpkin/ink, number "+961 81 732 183" linked to wa.me; hotline "STFU".
+
 ## Added navigation
 - Category rail under each banner (scrolls on phones, wraps on wide screens) and previous/next links
   under each price list (`category-nav.tsx`); both use the tap transition.
@@ -70,6 +82,7 @@ Suc'ara Coffee Shop and Cigar Lounge are not cloned yet and show a "still brewin
 - `prefers-reduced-motion` turns off all of it and links navigate immediately.
 
 ## Known gaps
-- Kids, Suc'ara Coffee Shop and Cigar Lounge still need their saved pages.
+- Suc'ara's eight section pages still need to be saved.
+- Kids and Cigar Lounge reuse Shisha's plain banner pattern on the source; they get their own palettes here.
 - The real Drinks banner photo still needs to be saved and swapped in.
 - The Lore webfont (`LORE-Regular.ttf`) was not in the snapshot; IM Fell English stands in.

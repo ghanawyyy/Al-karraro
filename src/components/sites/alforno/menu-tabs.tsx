@@ -64,8 +64,8 @@ export function MenuTabs({ tabs, defaultTab, label }: MenuTabsProps) {
         </h2>
         <div className="ak-items" key={active.id}>
           {active.items.map((item, i) => {
-            // The source stores serving notes ("served with…") as price-less menu entries.
-            const isNote = !item.price && (/^[a-z]/.test(item.title) || /\bserved with\b/i.test(item.title));
+            // The source stores serving notes ("served with…", "Add grilled chicken…!") as price-less entries.
+            const isNote = !item.price && (/^[a-z]/.test(item.title) || /\bserved with\b/i.test(item.title) || /[.!]$/.test(item.title));
             return (
               <article
                 key={`${item.title}-${i}`}

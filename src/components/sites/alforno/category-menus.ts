@@ -23,7 +23,8 @@ export interface CategoryMenu {
 
 // Extracted from saved snapshots of alfornogourmet.com/menu/<slug>/ (2026-10-28).
 // Tab order, labels, item order and wording are the source's; "8.50$" was normalized to "$8.50" and
-// "Alforno" in dish names was renamed to "Al Karraro"; the Dessert tab "ICE CREAM" was title-cased.
+// "Alforno" in dish names was renamed to "Al Karraro"; all-caps tab labels were title-cased; bare
+// prices ("10") got "$" and ".00"; Kids opens on its first tab (its source default has no items).
 export const categoryMenus: CategoryMenu[] = [
   {
     slug: "breakfast",
@@ -1446,6 +1447,339 @@ export const categoryMenus: CategoryMenu[] = [
           { title: "Ajami", price: "$12.00" },
           { title: "Extra Change Head", price: "$6.00" },
           { title: "Extra Hose", price: "$2.00" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "kids",
+    categoryId: "kids",
+    title: "Kids",
+    banner: "/sites/alforno/banners/kids.jpg",
+    defaultTab: "pasta",
+    tabs: [
+      {
+        id: "pasta",
+        label: "Pasta",
+        items: [
+          {
+            title: "Mini Spaghetti Pomodoro",
+            price: "$6.00",
+            description: "Spaghetti in a homemade tomato sauce Add grilled chicken or shrimp for extra yum!",
+          },
+          {
+            title: "Mini Fettuccine Alfredo",
+            price: "$7.50",
+            description: "Fettuccine in a creamy Alfredo sauce",
+          },
+          { title: "Add grilled chicken or shrimp for extra yum!" },
+        ],
+      },
+      {
+        id: "burgers-chicken",
+        label: "Burgers & Chicken",
+        items: [
+          {
+            title: "Mini Classic Burger",
+            price: "$7.00",
+            description: "2 Beef sliders with lettuce, tomato, and Al Karraro sauce on a mini brioche bun. Served with fries.",
+          },
+          {
+            title: "Mini Cheese Burger",
+            price: "$8.00",
+            description: "2 Beef sliders topped with cheddar cheese, pickles, and Al Karraro sauce on a mini brioche bun. Served with fries.",
+          },
+          {
+            title: "Mini Grilled Chicken Burger",
+            price: "$8.00",
+            description: "2 Tender grilled chicken breast with cheddar cheese, lettuce, and aioli sauce on a mini brioche bun. Served with fries.",
+          },
+          { title: "The Duo Mini Burgers", price: "$8.00" },
+        ],
+      },
+      {
+        id: "beverages",
+        label: "Beverages",
+        items: [
+          { title: "Fresh Juice" },
+          { title: "Water" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "cigar-lounge",
+    categoryId: "cigar-lounge",
+    title: "Cigar Lounge",
+    banner: "/sites/alforno/banners/cigar-lounge.jpg",
+    defaultTab: "cold-starters",
+    tabs: [
+      {
+        id: "cold-starters",
+        label: "Cold Starters & Salads",
+        items: [
+          {
+            title: "Crab Salad",
+            price: "$9.00",
+            description: "Crab sticks, Lolo rosso, carrots, cucumber, orange tobiko",
+          },
+          {
+            title: "Crispy Salmon Salad",
+            price: "$18.50",
+            description: "Salmon, Crispy, Exotic sauce, shredded nori",
+          },
+          {
+            title: "Black Burrata",
+            price: "$20.00",
+            description: "Black burrata, served on a bed of mixed cherry tomatoes—rich, creamy, and beautifully fresh.",
+          },
+          {
+            title: "Bresaola & Cheese Tortellini",
+            price: "$15.00",
+            description: "Italian bresaola thin slices filled with ricotta, goat cheese and Parmesan served with arugula, drizzling with extra virgin olive oil and black pepper",
+          },
+          {
+            title: "Mediterranean Mezza Platter",
+            price: "$12.00",
+            description: "A selection of Mediterranean favorites: hommos, moutabal, grape leaves, mini kibbe, mini cheese rolls, and mini sambousik.",
+          },
+        ],
+      },
+      {
+        id: "warm-bites",
+        label: "Warm Bites",
+        items: [
+          {
+            title: "Chicken Florentine Vol-au-Vent",
+            price: "$10.00",
+            description: "Puff pastry filled with creamy spinach chicken, topped with Parmesan and sundried tomato.",
+          },
+          {
+            title: "Chicken Satay Skewers",
+            price: "$10.00",
+            description: "Grilled marinated chicken with spicy aromatic peanut sauce.",
+          },
+          {
+            title: "Beef Shawarma Pita Slider",
+            price: "$10.00",
+            description: "Tender spiced beef shawarma in a mini pita, topped with traditional tarator sauce and bewaz.",
+          },
+          {
+            title: "Chicken Shawarma Pita Slider",
+            price: "$8.00",
+            description: "Marinated chicken shawarma, wrapped in a soft mini pita with our house-made spicy garlic sauce.",
+          },
+          {
+            title: "Mini Gourmet Beef Sliders",
+            price: "$14.00",
+            description: "3 sliders (original, truffle mayo, cheesy) in brioche buns.",
+          },
+          { title: "Edamame", price: "$5.00" },
+          {
+            title: "Cheese Balls",
+            price: "$8.00",
+            description: "Crunchy on the outside and melty inside, served on Carozza sauce",
+          },
+          {
+            title: "Arancini Cêpe",
+            price: "$12.00",
+            description: "Golden bites stuffed with mushroom cêpe, served with mayo-truffle dipping sauce.",
+          },
+        ],
+      },
+      {
+        id: "cigar-lounge-beverages",
+        label: "Beverages",
+        items: [
+          { title: "Small Still Water", price: "$1.50" },
+          { title: "Large Still Water", price: "$2.50" },
+          { title: "Small Sparkling Water", price: "$3.50" },
+          { title: "Pepsi", price: "$2.50" },
+          { title: "Diet Pepsi", price: "$2.50" },
+          { title: "Pepsi Zero", price: "$2.50" },
+          { title: "7UP", price: "$2.50" },
+          { title: "Lemonade", price: "$6.00" },
+          { title: "Diet 7UP", price: "$2.50" },
+          { title: "Mirinda", price: "$2.50" },
+          { title: "Virgin Bloody Mary", price: "$7.00" },
+          { title: "Jamaica", price: "$7.00" },
+          { title: "Virgin Mojito", price: "$4.50" },
+          { title: "Orange", price: "$6.00" },
+          { title: "Peach Lemonade", price: "$7.00" },
+          { title: "Mango", price: "$7.00" },
+          { title: "Peach Iced Tea", price: "$4.50" },
+          { title: "Strawberry", price: "$6.50" },
+          { title: "Fresh Cocktail Juice", price: "$5.00" },
+          { title: "Pomegranate", price: "$8.00" },
+          { title: "Espresso", price: "$2.50" },
+          { title: "Decaffeinated Espresso", price: "$3.00" },
+          { title: "Doppio", price: "$3.50" },
+          { title: "Turkish Coffee", price: "$3.00" },
+          { title: "Espresso Macchiato", price: "$3.00" },
+          { title: "Lungo", price: "$2.50" },
+          { title: "Americano", price: "$4.00" },
+          { title: "Flat White", price: "$4.00" },
+          { title: "Cappuccino", price: "$4.50" },
+          { title: "Café Latte", price: "$4.00" },
+          { title: "Ristretto", price: "$2.50" },
+          { title: "Spanish Latte", price: "$5.00" },
+          { title: "White Coffee", price: "$2.50" },
+          { title: "V60 Pour Over", price: "$8.00" },
+          { title: "French Press Coffee", price: "$6.00" },
+          { title: "Hot Chocolate", price: "$5.50" },
+          { title: "Iced Latte", price: "$5.00" },
+          { title: "Iced Vanilla Rose Latte", price: "$7.00" },
+          { title: "Iced Pistachio Latte", price: "$8.00" },
+          { title: "Fresh Ginger Tea", price: "$6.00" },
+          {
+            title: "Selection of Signature Teas & Premium Infusions",
+            price: "$7.00",
+            description: "(Please refer to our dedicated Tea & Infusion Menu.)",
+          },
+          { title: "Blueberry Banana", price: "$8.00" },
+          { title: "Hibiscus Iced Tea", price: "$4.50" },
+          { title: "Pumpkin Latte", price: "$6.00" },
+          { title: "Toffee Nut Latte", price: "$6.00" },
+        ],
+      },
+      {
+        id: "cigar-french-bakery-favorites",
+        label: "French Bakery Favorites",
+        items: [
+          { title: "Nature", price: "$2.00" },
+          { title: "Thyme", price: "$2.50" },
+          { title: "Cheese", price: "$3.00" },
+          { title: "Chocolate", price: "$3.00" },
+          { title: "Almond", price: "$4.00" },
+          { title: "Pistachio", price: "$5.00" },
+          { title: "Choco Amande", price: "$5.00" },
+        ],
+      },
+      {
+        id: "cigar-artisan-croissants",
+        label: "Artisan Croissants",
+        items: [
+          {
+            title: "Salmon Croissant",
+            price: "$13.00",
+            description: "Croissant filled with smoked salmon, cream cheese, fresh dill, avocado, and capers.",
+          },
+          {
+            title: "Turkey & Cheese Croissant",
+            price: "$10.00",
+            description: "Smoked turkey, Emmental cheese, fresh rucola, and a hint of ranch dip.",
+          },
+          {
+            title: "Scrambled Eggs Croissants",
+            price: "$7.50",
+            description: "Croissant stuffed with creamy scrambled eggs, Emmental topped with chives and herbs",
+          },
+        ],
+      },
+      {
+        id: "cigar-tartines",
+        label: "Tartines",
+        items: [
+          {
+            title: "Labneh Tartine",
+            price: "$6.00",
+            description: "Pain de mie, labneh mixed with pesto, cherry tomato, cucumber, olives, fresh mint.",
+          },
+          {
+            title: "Halloumi Pesto Tartine",
+            price: "$10.00",
+            description: "Ciabatta cereal, pesto spread, halloumi cheese, sundried tomato, wild rocket.",
+          },
+          {
+            title: "Brie Sandwich",
+            price: "$10.00",
+            description: "Brioche with brie, glazed onion, mushroom; side of side salad.",
+          },
+        ],
+      },
+      {
+        id: "cigar-sourdough-breakfast-selection",
+        label: "Sourdough Breakfast Selection",
+        items: [
+          {
+            title: "Sourdough Zaatar Manakish",
+            price: "$3.50",
+            description: "Authentic zaatar blend mixed with virgin olive oil, topped with labneh over our Sourdough base and baked to golden perfection..",
+          },
+          {
+            title: "Sourdough Cheese Manakish",
+            price: "$5.00",
+            description: "Melted akkawi cheese top on our sourdough, finished with a touch of sesame seeds, creamy, and irresistible.",
+          },
+          {
+            title: "Sourdough Mixed Cheese Manakish",
+            price: "$7.00",
+            description: "A blend of akkawi, halloumi, kashkaval, and mozzarella cheeses, melted together over our signature sourdough for the ultimate cheesy experience.",
+          },
+          {
+            title: "Sourdough Turkey & Cheese Manakish",
+            price: "$8.00",
+            description: "Smoked turkey breast paired with akkawi cheese, baked on our rustic sourdough base. A satisfying twist on a classic melt.",
+          },
+          {
+            title: "Sourdough Eggs with Kawarma Manakish",
+            price: "$8.50",
+            description: "Eggs and savory kawarma layered on sourdough full of tradition.",
+          },
+          {
+            title: "Sourdough Karishe & Honey Manakish",
+            price: "$6.00",
+            description: "Fresh Lebanese karishe cheese baked on sourdough, then drizzled with pure honey and a sprinkle of walnuts. A sweet and tangy morning treat.",
+          },
+          {
+            title: "All our manakish are made with 100% natural sourdough and the freshest local ingredients.",
+          },
+        ],
+      },
+      {
+        id: "cigar-sandwiches",
+        label: "Sandwiches",
+        items: [
+          {
+            title: "Beef & Cheddar Melt Sandwich",
+            price: "$13.00",
+            description: "Tenderloin beef Steak, Emmental & cheddar, glazed onion, Chipotle mayo on sweet bread; shoestring potatoes.",
+          },
+          {
+            title: "Smoked Salmon & Herb",
+            price: "$17.00",
+            description: "Batard bread, smoked salmon, avocado, cream cheese, capers, fresh herbs, citrus scent.",
+          },
+          {
+            title: "Truffle Chicken Supreme",
+            price: "$15.00",
+            description: "Grilled chicken with mushrooms and truffle provolone; wild arugula; shoestring potatoes.",
+          },
+          {
+            title: "Tuna Avocado",
+            price: "$10.00",
+            description: "Tuna with avocado, iceberg, sun-dried tomatoes on multigrain ciabatta; served with mixed arugula salad.",
+          },
+        ],
+      },
+      {
+        id: "cigar-selection-menu",
+        label: "Cigar Selection Menu",
+        items: [
+          { title: "SAN LOTANO REQIEM HABANO ROBUSTO", price: "$13.00" },
+          { title: "AJF N.W PURO ESP. ROBUSTO", price: "$15.00" },
+          { title: "HR MILLESIME H6", price: "$15.00" },
+          { title: "COHIBA WHITE CLUB", price: "$32.00" },
+          { title: "M.C OPEN MINI", price: "$11.00" },
+          { title: "PLASENCIA ALMA FUERTE NESTOR IV", price: "$26.00" },
+          { title: "PLASENCIA RESERVA ORIGINAL CORTES", price: "$13.00" },
+          { title: "HDM SERIES EPIC NO. 1", price: "$37.00" },
+          { title: "HDM SERIES EPICURE NO. 2", price: "$35.00" },
+          { title: "MONTECRISTO NO. 2", price: "$48.00" },
+          { title: "PARTAGAS D NO. 4", price: "$42.00" },
+          { title: "PARTAGAS D NO. 6", price: "$28.00" },
+          { title: "PARTAGAS P NO. 2", price: "$45.00" },
+          { title: "PLASENCIA RESERVA ORIGINAL ROBUSTO", price: "$13.00" },
         ],
       },
     ],

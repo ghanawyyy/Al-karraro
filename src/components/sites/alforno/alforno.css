@@ -336,6 +336,12 @@
   font-weight: 900;
   margin-bottom: 10px;
   white-space: nowrap;
+  color: #fff;
+  text-decoration: none;
+}
+
+.ak-page .af-whatsapp-icon svg {
+  filter: drop-shadow(0 0 6px rgb(232 114 28 / 70%));
 }
 
 .ak-page .af-whatsapp-icon {

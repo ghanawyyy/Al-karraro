@@ -1,0 +1,72 @@
+/*
+ * Suc'ara landing (source: alfornogourmet.com/menu/sucara/). Source values: lilac petal pattern
+ * (Sucara-Homepage-Background.jpg) cover/fixed; container max 750px + 20px padding (15px ≤480);
+ * logo 175px; boxes filled rgb(105, 93, 118), padding 14px 30px, radius 3px, 12px gap;
+ * h2 ITC Avant Garde Gothic Book 1.4em, ls 2px, rgb(246, 244, 246). Questrial stands in for the font.
+ */
+.ak-sucara-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  background: #12091a url("/sites/alforno/sucara/sucara-pattern-spooky.jpg") center / cover no-repeat;
+}
+
+.ak-sucara-main {
+  position: relative;
+  z-index: 1;
+  flex: 1 0 auto;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ak-sucara .container {
+  padding: 20px;
+}
+
+.ak-sucara .logo {
+  margin-bottom: 30px;
+}
+
+.ak-sucara .logo img {
+  display: inline-block;
+  width: 100%;
+  max-width: 175px;
+  height: auto;
+  filter: drop-shadow(0 0 12px rgb(243 227 195 / 30%));
+}
+
+.ak-sucara .menu-options {
+  margin-bottom: 60px;
+}
+
+.ak-sucara .menu-box {
+  border: 0;
+  padding: 14px 30px;
+  background: linear-gradient(180deg, rgb(91 31 115 / 92%), rgb(62 20 82 / 92%));
+  backdrop-filter: none;
+  box-shadow: inset 0 0 0 1px rgb(232 114 28 / 45%), 0 4px 14px rgb(0 0 0 / 35%);
+}
+
+.ak-sucara .menu-box:hover {
+  box-shadow:
+    inset 0 0 0 1px var(--ak-pumpkin),
+    0 8px 20px rgb(0 0 0 / 45%),
+    0 0 18px rgb(232 114 28 / 45%);
+}
+
+.ak-sucara .menu-box h2 {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: var(--ak-bone);
+}
+
+@media (max-width: 768px) {
+  .ak-sucara .menu-box { padding: 12px 25px; }
+}
+
+@media (max-width: 480px) {
+  .ak-sucara .container { padding: 15px; }
+  .ak-sucara .menu-box { padding: 12px 20px; }
+}

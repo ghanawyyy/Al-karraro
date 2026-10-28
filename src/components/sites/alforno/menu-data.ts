@@ -33,12 +33,12 @@ export const menuCategories: MenuCategory[] = [
   { id: "italian", title: "Italian", slug: "italian" },
   { id: "sushi", title: "Sushi", slug: "sushi" },
   { id: "dessert", title: "Dessert", slug: "dessert" },
-  { id: "kids", title: "Kids" },
+  { id: "kids", title: "Kids", slug: "kids" },
   { id: "drinks", title: "Drinks", slug: "drinks" },
   { id: "shisha", title: "Shisha", slug: "shisha" },
   { id: "take-away-only", title: "Take Away Only", hidden: true },
-  { id: "sucara-coffee-shop", title: "Suc'ara Coffee Shop" },
-  { id: "cigar-lounge", title: "Cigar Lounge" },
+  { id: "sucara-coffee-shop", title: "Suc'ara Coffee Shop", slug: "sucara" },
+  { id: "cigar-lounge", title: "Cigar Lounge", slug: "cigar-lounge" },
 ];
 
 export const branches = [
@@ -47,3 +47,8 @@ export const branches = [
 ];
 
 export const appStoreUrl = "https://marketing.suppy.app/?cp=25Z17C15T54B05Z";
+
+// Replaces the source's WhatsApp "81 233 331" and hotline "1656".
+export const whatsappNumber = "+961 81 732 183";
+export const whatsappUrl = "https://wa.me/96181732183";
+export const hotline = "STFU";
