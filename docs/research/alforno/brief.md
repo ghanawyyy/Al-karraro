@@ -37,6 +37,8 @@ Every box on the menu and on the Cukarra page now opens a cloned page.
    "Take Away Only" is hidden on the live site by `.menu-box[onclick*="take-away-only"] { display: none }`.
 4. Footer `.af-menu-footer` — app badges (suppy.app link), Khaldeh + Verdun branches, WhatsApp 81 233 331,
    hotline 1656, "Copyright© Worldfood 2026". 3-column grid, stacks ≤1100px.
+   (Requested changes: copyright now "Copyright© 2026 ghanawyyy™", plus a "ghanawyyy × Al Karraro badge"
+   collab line under every footer.)
 - Container width: 272px <480, 432px ≥480, 720px ≥768, 960px ≥1024, 1200px ≥1280.
 - Background: `bg-scaled.jpeg` (green watercolor waves), cover, fixed.
 

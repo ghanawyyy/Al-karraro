@@ -1,5 +1,6 @@
 import { Fragment } from "react";
-import { appStoreUrl, branches, hotline, whatsappNumber, whatsappUrl } from "./menu-data";
+import { KarraroLogo } from "./karraro-logo";
+import { appStoreUrl, branches, hotline, owner, whatsappNumber, whatsappUrl } from "./menu-data";
 
 export function MenuFooter() {
   return (
@@ -79,8 +80,16 @@ export function MenuFooter() {
             <span className="af-hotline-label">HOTLINE</span>
             <span className="af-hotline-number">{hotline}</span>
           </div>
-          <div className="af-footer-copyright">Copyright© Worldfood 2026</div>
+          <div className="af-footer-copyright">Copyright© 2026 {owner}™</div>
         </div>
+      </div>
+      <div className="ak-collab">
+        <span className="ak-collab-name">{owner}</span>
+        <span className="ak-collab-x" aria-hidden="true">
+          ×
+        </span>
+        <span className="sr-only">in collaboration with</span>
+        <KarraroLogo className="ak-collab-badge" titleId="ak-collab-badge-title" />
       </div>
     </footer>
   );

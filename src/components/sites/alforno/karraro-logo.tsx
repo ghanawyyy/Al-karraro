@@ -1,14 +1,14 @@
 // Redraws the Al Forno badge (public/sites/alforno/logo-original.png, 501x160) with the new name.
-export function KarraroLogo({ className }: { className?: string }) {
+export function KarraroLogo({ className, titleId = "ak-logo-title" }: { className?: string; titleId?: string }) {
   return (
     <svg
       className={className}
       viewBox="0 0 501 160"
       role="img"
-      aria-labelledby="ak-logo-title"
+      aria-labelledby={titleId}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <title id="ak-logo-title">Al Karraro Gourmet</title>
+      <title id={titleId}>Al Karraro Gourmet</title>
       <path
         d="M20 4H481a16 16 0 0 1 15 20l-26 116a20 20 0 0 1-20 16H51a20 20 0 0 1-20-16L5 24A16 16 0 0 1 20 4z"
         fill="#f3e3c3"

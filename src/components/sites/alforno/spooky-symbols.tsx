@@ -45,18 +45,19 @@ export function JackOLantern({ className }: SymbolProps) {
   );
 }
 
-export function SpookyGhost({ className }: SymbolProps) {
+export function SpookyGhost({ className, id }: SymbolProps & { id: string }) {
+  const gradient = `ak-ghost-body-${id}`;
   return (
     <svg className={className} viewBox="0 0 60 90" aria-hidden="true">
       <defs>
-        <linearGradient id="ak-ghost-body" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id={gradient} x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stopColor="#efe9ff" stopOpacity="0.95" />
           <stop offset="0.55" stopColor="#cfc4f0" stopOpacity="0.7" />
           <stop offset="1" stopColor="#a796d8" stopOpacity="0" />
         </linearGradient>
       </defs>
       <path
-        fill="url(#ak-ghost-body)"
+        fill={`url(#${gradient})`}
         d="M30 4C14 4 6 18 6 34v8c-4 2-6 6-5 10 2-3 4-4 5-4v14c0 8-2 16-4 24 6-4 10-2 14 2 4-6 8-8 12-2 4-6 10-6 14 1 4-6 8-5 12-1-2-10 0-20 0-30V48c1 0 3 1 5 4 1-4-1-8-5-10v-8C54 18 46 4 30 4z"
       />
       <path fill="#0b0710" d="M17 27c3-3 9-2 10 3 1 5-2 10-6 10s-7-8-4-13zM43 27c-3-3-9-2-10 3-1 5 2 10 6 10s7-8 4-13z" />

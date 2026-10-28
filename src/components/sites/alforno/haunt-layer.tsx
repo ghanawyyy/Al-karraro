@@ -23,7 +23,7 @@ export function HauntLayer() {
         </div>
       ))}
       {ghosts.map((name) => (
-        <SpookyGhost key={name} className={`ak-ghost ${name}`} />
+        <SpookyGhost key={name} id={name} className={`ak-ghost ${name}`} />
       ))}
       <JackOLantern className="ak-lantern ak-lantern-left" />
       <JackOLantern className="ak-lantern ak-lantern-right" />

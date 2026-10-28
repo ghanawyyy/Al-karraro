@@ -52,3 +52,6 @@ export const appStoreUrl = "https://marketing.suppy.app/?cp=25Z17C15T54B05Z";
 export const whatsappNumber = "+961 81 732 183";
 export const whatsappUrl = "https://wa.me/96181732183";
 export const hotline = "STFU";
+
+// Replaces the source's "Copyright© Worldfood 2026"; also signs the "ghanawyyy × Al Karraro" collab line.
+export const owner = "ghanawyyy";
