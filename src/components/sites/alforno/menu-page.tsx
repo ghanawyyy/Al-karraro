@@ -3,13 +3,16 @@ import "@fontsource/im-fell-english/400.css";
 import "./alforno.css";
 
 import Image from "next/image";
+import { BrewingBox } from "./brewing-box";
 import { categoryIcons } from "./category-icons";
+import { HauntLayer } from "./haunt-layer";
 import { KarraroLogo } from "./karraro-logo";
 import { MenuFooter } from "./menu-footer";
 import { menuCategories } from "./menu-data";
-import { Bat, Cobweb, Ghost, JackOLantern, Spider } from "./spooky-symbols";
+import { PortalReveal } from "./portal-reveal";
+import { SpookyLink } from "./spooky-link";
+import { Cobweb, JackOLantern, Spider } from "./spooky-symbols";
 
-const bats = ["ak-bat-1", "ak-bat-2", "ak-bat-3", "ak-bat-4"];
 const spiders = ["ak-spider-1", "ak-spider-2"];
 
 export function MenuPage() {
@@ -19,17 +22,7 @@ export function MenuPage() {
       <div className="ak-photo" aria-hidden="true">
         <Image src="/sites/alforno/karraro-photo.jpg" alt="" fill priority sizes="100vw" />
       </div>
-
-      <div className="ak-haunt" aria-hidden="true">
-        <div className="ak-moon" />
-        {bats.map((name) => (
-          <div key={name} className={`ak-bat ${name}`}>
-            <Bat className="ak-bat-svg" />
-          </div>
-        ))}
-        <Ghost className="ak-ghost ak-ghost-left" />
-        <Ghost className="ak-ghost ak-ghost-right" />
-      </div>
+      <HauntLayer />
 
       <main className="page-main">
         <Cobweb className="ak-web ak-web-left" />
@@ -49,25 +42,33 @@ export function MenuPage() {
             <b>Your Gourmet Experience</b>
             <JackOLantern className="ak-pumpkin" />
           </div>
-          <div className="menu-options">
+          <nav className="menu-options" aria-label="Menu categories">
             {menuCategories
               .filter((category) => !category.hidden)
               .map((category) => {
                 const Icon = categoryIcons[category.id];
-                return (
-                  <div key={category.id} className="menu-box">
-                    <h2>
-                      <Icon className="ak-category-icon" aria-hidden="true" />
-                      <span>{category.title}</span>
-                    </h2>
-                  </div>
+                const label = (
+                  <h2>
+                    <Icon className="ak-category-icon" aria-hidden="true" />
+                    <span>{category.title}</span>
+                  </h2>
+                );
+                return category.slug ? (
+                  <SpookyLink key={category.id} href={`/${category.slug}`} className="menu-box">
+                    {label}
+                  </SpookyLink>
+                ) : (
+                  <BrewingBox key={category.id} title={category.title}>
+                    {label}
+                  </BrewingBox>
                 );
               })}
-          </div>
+          </nav>
         </div>
       </main>
 
       <MenuFooter />
+      <PortalReveal />
     </div>
   );
 }

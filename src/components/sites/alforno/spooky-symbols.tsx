@@ -11,17 +11,6 @@ export function Bat({ className }: SymbolProps) {
   );
 }
 
-export function Ghost({ className }: SymbolProps) {
-  return (
-    <svg className={className} viewBox="0 0 40 48" aria-hidden="true">
-      <path fill="#f3e3c3" d="M20 2C10 2 4 10 4 20v24l5-4 5 4 6-4 6 4 5-4 5 4V20C36 10 30 2 20 2z" />
-      <ellipse cx="14.5" cy="19" rx="3" ry="4.2" fill="#0b0710" />
-      <ellipse cx="25.5" cy="19" rx="3" ry="4.2" fill="#0b0710" />
-      <ellipse cx="20" cy="29" rx="3.2" ry="4.4" fill="#0b0710" />
-    </svg>
-  );
-}
-
 export function Spider({ className }: SymbolProps) {
   return (
     <svg className={className} viewBox="0 0 32 32" aria-hidden="true">
@@ -48,8 +37,65 @@ export function JackOLantern({ className }: SymbolProps) {
         strokeWidth="1.6"
         d="M17 10c-6 4-6 28 0 32M31 10c6 4 6 28 0 32M24 9v34"
       />
-      <path fill="#ffd36b" d="M11 22l6-6 4 7zM37 22l-6-6-4 7zM24 24l-3 5h6z" />
-      <path fill="#ffd36b" d="M10 30c4 7 24 7 28 0l-4 1-2 3-3-3-3 3-3-3-3 3-3-3-2 2z" />
+      <g className="ak-jack-face">
+        <path fill="#ffd36b" d="M11 22l6-6 4 7zM37 22l-6-6-4 7zM24 24l-3 5h6z" />
+        <path fill="#ffd36b" d="M10 30c4 7 24 7 28 0l-4 1-2 3-3-3-3 3-3-3-3 3-3-3-2 2z" />
+      </g>
+    </svg>
+  );
+}
+
+export function SpookyGhost({ className }: SymbolProps) {
+  return (
+    <svg className={className} viewBox="0 0 60 90" aria-hidden="true">
+      <defs>
+        <linearGradient id="ak-ghost-body" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#efe9ff" stopOpacity="0.95" />
+          <stop offset="0.55" stopColor="#cfc4f0" stopOpacity="0.7" />
+          <stop offset="1" stopColor="#a796d8" stopOpacity="0" />
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#ak-ghost-body)"
+        d="M30 4C14 4 6 18 6 34v8c-4 2-6 6-5 10 2-3 4-4 5-4v14c0 8-2 16-4 24 6-4 10-2 14 2 4-6 8-8 12-2 4-6 10-6 14 1 4-6 8-5 12-1-2-10 0-20 0-30V48c1 0 3 1 5 4 1-4-1-8-5-10v-8C54 18 46 4 30 4z"
+      />
+      <path fill="#0b0710" d="M17 27c3-3 9-2 10 3 1 5-2 10-6 10s-7-8-4-13zM43 27c-3-3-9-2-10 3-1 5 2 10 6 10s7-8 4-13z" />
+      <circle className="ak-ghost-eye" cx="22" cy="33" r="1.8" fill="#ff3b2f" />
+      <circle className="ak-ghost-eye" cx="38" cy="33" r="1.8" fill="#ff3b2f" />
+      <path fill="#0b0710" d="M30 46c-5 0-7 6-6 14s3 12 6 12 5-4 6-12-1-14-6-14z" />
+    </svg>
+  );
+}
+
+export function Witch({ className }: SymbolProps) {
+  return (
+    <svg className={className} viewBox="0 -10 124 80" aria-hidden="true">
+      <g fill="currentColor">
+        <path d="M6 47.5 96 39l.4 3.5-90 8.5z" />
+        <path d="M92 34l28-9-3 13 5 4-6 3 3 10-27-9z" />
+        <path d="M44 44c4-16 18-26 34-22 6 2 12 2 16-1-2 8-9 12-16 12 5 2 9 6 10 12-10-4-20-4-30 2z" />
+        <path d="M37 44c-2-12 3-22 11-25l9 22z" />
+        <circle cx="47" cy="15" r="6.5" />
+        <path d="M41 14.5 33 18l8.4 1.6z" />
+        <path d="M35 10.5c6-2 18-3 26-1-4 2-20 3-26 1z" />
+        <path d="M41.5 9.5C46 2 54-6 70-6c-8 3-12 8-14 15z" />
+        <path d="M44 25 30 39l3 3 15-12z" />
+        <path d="M49 42 43 55l-6 1.5 1 2.5 9-1 7-13z" />
+      </g>
+    </svg>
+  );
+}
+
+export function LightningBolt({ className }: SymbolProps) {
+  return (
+    <svg className={className} viewBox="0 0 60 160" aria-hidden="true">
+      <path
+        fill="none"
+        stroke="#f4ecff"
+        strokeWidth="3"
+        strokeLinejoin="round"
+        d="M38 0 22 52l14 2-22 46 14 2L4 160l40-70-15-2 19-38-14-2z"
+      />
     </svg>
   );
 }

@@ -1,0 +1,480 @@
+/* Halloween scenery, page transitions and the "still brewing" toast. */
+.ak-haunt {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* ---------- Moon + witch ---------- */
+.ak-moon {
+  position: absolute;
+  top: 6vh;
+  right: 7vw;
+  width: clamp(56px, 9vw, 120px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 36%, #fff4d6 0%, #f6d98f 55%, #d9a441 100%);
+  box-shadow: 0 0 40px 10px rgb(246 217 143 / 30%);
+  opacity: 0.85;
+}
+
+.ak-witch {
+  position: absolute;
+  top: calc(6vh + clamp(10px, 2vw, 34px));
+  left: 0;
+  width: clamp(70px, 9vw, 130px);
+  color: #0b0710;
+  animation: ak-witch-fly 16s linear infinite;
+  animation-delay: -6s;
+}
+
+.ak-witch-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: ak-witch-bob 1.6s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 2px rgb(232 114 28 / 80%)) drop-shadow(0 0 10px rgb(91 31 115 / 70%));
+}
+
+@keyframes ak-witch-fly {
+  from { transform: translateX(calc(100vw + 40px)) translateY(4vh); }
+  to { transform: translateX(-160px) translateY(-2vh); }
+}
+
+@keyframes ak-witch-bob {
+  from { transform: translateY(-4px) rotate(-3deg); }
+  to { transform: translateY(6px) rotate(2deg); }
+}
+
+/* ---------- Lightning (two soft flashes every 11s, well under 3 flashes per second) ---------- */
+.ak-lightning {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 70% 0%, rgb(236 226 255 / 90%), rgb(150 120 220 / 40%) 45%, transparent 75%);
+  opacity: 0;
+  animation: ak-flash 11s linear infinite;
+  animation-delay: 3s;
+}
+
+.ak-bolt {
+  position: absolute;
+  top: 0;
+  right: 24vw;
+  width: clamp(36px, 4vw, 60px);
+  height: auto;
+  opacity: 0;
+  filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 18px rgb(190 160 255 / 90%));
+  animation: ak-flash-bolt 11s linear infinite;
+  animation-delay: 3s;
+}
+
+@keyframes ak-flash {
+  0%, 90%, 91.6%, 93%, 95.5%, 100% { opacity: 0; }
+  90.6% { opacity: 0.32; }
+  93.8% { opacity: 0.22; }
+}
+
+@keyframes ak-flash-bolt {
+  0%, 90%, 92%, 93.2%, 95.5%, 100% { opacity: 0; }
+  90.4%, 91.4% { opacity: 1; }
+  93.8%, 94.6% { opacity: 0.8; }
+}
+
+/* ---------- Bats ---------- */
+.ak-bat {
+  position: absolute;
+  left: 0;
+  color: #0b0710;
+  animation: ak-fly 18s linear infinite;
+}
+
+.ak-bat-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: ak-flap 0.35s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 3px rgb(232 114 28 / 70%)) drop-shadow(0 0 8px rgb(176 120 220 / 45%));
+}
+
+.ak-bat-1 { top: 12vh; width: 64px; }
+.ak-bat-2 { top: 30vh; width: 46px; animation-duration: 23s; animation-delay: -9s; }
+.ak-bat-3 { top: 55vh; width: 46px; animation-duration: 27s; animation-delay: -4s; }
+.ak-bat-4 { top: 78vh; width: 40px; animation-duration: 20s; animation-delay: -14s; }
+
+@keyframes ak-fly {
+  from { transform: translate(-80px, 0) rotate(-4deg); }
+  25% { transform: translate(25vw, -4vh) rotate(3deg); }
+  50% { transform: translate(50vw, 3vh) rotate(-3deg); }
+  75% { transform: translate(75vw, -3vh) rotate(4deg); }
+  to { transform: translate(calc(100vw + 80px), 0) rotate(-4deg); }
+}
+
+@keyframes ak-flap {
+  from { transform: scaleY(1); }
+  to { transform: scaleY(0.6); }
+}
+
+/* ---------- Ghosts that fade in and out of sight ---------- */
+.ak-ghost {
+  position: absolute;
+  width: clamp(48px, 6vw, 96px);
+  height: auto;
+  opacity: 0;
+  filter: drop-shadow(0 0 14px rgb(205 190 255 / 55%));
+  animation: ak-haunting 9s ease-in-out infinite;
+}
+
+.ak-ghost-1 { top: 34vh; left: 2vw; }
+.ak-ghost-2 { top: 60vh; right: 2vw; animation-delay: -3s; animation-duration: 11s; }
+.ak-ghost-3 { top: 16vh; left: 22vw; width: clamp(36px, 4vw, 64px); animation-delay: -6.5s; animation-duration: 13s; }
+
+.ak-ghost-eye {
+  animation: ak-eye-glow 2.4s ease-in-out infinite alternate;
+}
+
+@keyframes ak-haunting {
+  0% { opacity: 0; transform: translate(0, 20px) scale(0.9) skewX(0deg); }
+  20% { opacity: 0.85; }
+  45% { transform: translate(18px, -14px) scale(1) skewX(-5deg); }
+  60% { opacity: 0.7; }
+  80% { opacity: 0; transform: translate(-10px, -40px) scale(1.06) skewX(4deg); }
+  100% { opacity: 0; transform: translate(0, 20px) scale(0.9); }
+}
+
+@keyframes ak-eye-glow {
+  from { opacity: 0.35; }
+  to { opacity: 1; }
+}
+
+/* ---------- Candle-lit jack-o'-lanterns ---------- */
+.ak-lantern {
+  position: absolute;
+  bottom: 2vh;
+  width: clamp(44px, 5vw, 84px);
+  height: auto;
+  animation: ak-candle 2.2s steps(1, end) infinite;
+}
+
+.ak-lantern-left { left: 1.5vw; }
+.ak-lantern-right { right: 1.5vw; animation-delay: -1.1s; }
+
+.ak-jack-face {
+  animation: ak-candle-face 1.7s ease-in-out infinite alternate;
+}
+
+@keyframes ak-candle {
+  0% { filter: drop-shadow(0 0 10px rgb(255 160 40 / 70%)); }
+  23% { filter: drop-shadow(0 0 18px rgb(255 140 30 / 90%)); }
+  41% { filter: drop-shadow(0 0 7px rgb(255 160 40 / 55%)); }
+  67% { filter: drop-shadow(0 0 22px rgb(255 180 60 / 95%)); }
+  84% { filter: drop-shadow(0 0 12px rgb(255 150 40 / 75%)); }
+}
+
+@keyframes ak-candle-face {
+  0% { opacity: 1; }
+  30% { opacity: 0.72; }
+  55% { opacity: 0.95; }
+  80% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+/* ---------- Cobwebs + dangling spiders (menu page) ---------- */
+.ak-web {
+  position: absolute;
+  top: 0;
+  width: clamp(80px, 12vw, 160px);
+  height: auto;
+  color: rgb(243 227 195 / 45%);
+  pointer-events: none;
+}
+
+.ak-web-left { left: 0; }
+.ak-web-right { right: 0; transform: scaleX(-1); }
+
+.ak-spider {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  background: rgb(243 227 195 / 55%);
+  transform-origin: top center;
+  animation: ak-dangle 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.ak-spider-svg {
+  position: absolute;
+  bottom: -26px;
+  left: -14px;
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 0 3px rgb(232 114 28 / 70%));
+}
+
+.ak-spider-1 { left: 9vw; height: 150px; }
+.ak-spider-2 { right: 14vw; height: 90px; animation-delay: -1.7s; animation-duration: 5s; }
+
+@keyframes ak-dangle {
+  0%, 100% { transform: scaleY(1) rotate(0deg); }
+  50% { transform: scaleY(1.18) rotate(2deg); }
+}
+
+@media (max-width: 767px) {
+  .ak-ghost-1 { left: -6px; }
+  .ak-ghost-2 { right: -6px; }
+  .ak-ghost-3 { display: none; }
+  .ak-spider-1 { left: 4vw; height: 120px; }
+  .ak-spider-2 { display: none; }
+  .ak-bolt { right: 12vw; }
+}
+
+@media (max-width: 480px) {
+  .ak-moon { top: 10px; right: 4vw; width: 44px; }
+  .ak-witch { top: 30px; width: 64px; }
+}
+
+/* ---------- Tap transition: pumpkin + bat swarm + witch + closing portal ---------- */
+@property --ak-hole {
+  syntax: "<length-percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+.ak-burst {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.ak-burst-portal {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, #3a1450 0%, #160b1f 45%, #0b0710 80%);
+  clip-path: circle(0% at var(--ak-x) var(--ak-y));
+  animation: ak-portal-close 0.75s cubic-bezier(0.6, 0, 0.8, 0.4) 0.12s forwards;
+}
+
+@keyframes ak-portal-close {
+  to { clip-path: circle(150% at var(--ak-x) var(--ak-y)); }
+}
+
+.ak-burst-ring {
+  position: absolute;
+  left: var(--ak-x);
+  top: var(--ak-y);
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 3px solid var(--ak-pumpkin, #e8721c);
+  border-radius: 50%;
+  box-shadow: 0 0 24px rgb(232 114 28 / 80%), inset 0 0 18px rgb(176 120 220 / 60%);
+  animation: ak-ring 0.7s ease-out forwards;
+}
+
+@keyframes ak-ring {
+  from { transform: scale(0.2); opacity: 1; }
+  to { transform: scale(9); opacity: 0; }
+}
+
+.ak-burst-pumpkin {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 84px;
+  height: auto;
+  margin: -38px 0 0 -42px;
+  filter: drop-shadow(0 0 24px rgb(255 160 40 / 95%));
+  animation: ak-pumpkin-summon 0.95s cubic-bezier(0.3, 1.4, 0.5, 1) forwards;
+}
+
+@keyframes ak-pumpkin-summon {
+  0% { transform: translate(var(--ak-x), var(--ak-y)) scale(0.1) rotate(-30deg); opacity: 0; }
+  30% { transform: translate(var(--ak-x), var(--ak-y)) scale(1.3) rotate(10deg); opacity: 1; }
+  100% { transform: translate(50vw, 50vh) scale(1.6) rotate(0deg); opacity: 1; }
+}
+
+.ak-burst-bat {
+  position: absolute;
+  left: var(--ak-x);
+  top: var(--ak-y);
+  width: 44px;
+  margin: -11px 0 0 -22px;
+  color: #0b0710;
+  filter: drop-shadow(0 0 4px rgb(232 114 28 / 90%));
+  animation: ak-bat-scatter 0.9s cubic-bezier(0.2, 0.7, 0.4, 1) var(--ak-delay) forwards;
+  opacity: 0;
+}
+
+.ak-burst-bat svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: ak-flap 0.18s ease-in-out infinite alternate;
+}
+
+@keyframes ak-bat-scatter {
+  0% { transform: translate(0, 0) scale(0.3); opacity: 1; }
+  100% { transform: translate(var(--ak-dx), var(--ak-dy)) scale(var(--ak-s)) rotate(var(--ak-r)); opacity: 0.9; }
+}
+
+.ak-burst-witch {
+  position: absolute;
+  top: 18vh;
+  left: 0;
+  width: clamp(110px, 16vw, 200px);
+  color: #0b0710;
+  filter: drop-shadow(0 0 3px rgb(232 114 28 / 95%)) drop-shadow(0 0 16px rgb(176 120 220 / 80%));
+  animation: ak-witch-swoop 0.95s ease-in forwards;
+}
+
+.ak-burst-witch svg { display: block; width: 100%; height: auto; }
+
+@keyframes ak-witch-swoop {
+  from { transform: translate(calc(100vw + 20px), 30vh) rotate(-14deg); }
+  to { transform: translate(-220px, -8vh) rotate(6deg); }
+}
+
+/* ---------- Page entrance: the portal opens around the pumpkin ---------- */
+.ak-entry {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  pointer-events: none;
+  animation: ak-entry-done 0s linear 1.25s forwards;
+}
+
+.ak-entry-veil {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, #3a1450 0%, #160b1f 45%, #0b0710 80%);
+  mask-image: radial-gradient(circle at 50% 50%, transparent var(--ak-hole), #000 calc(var(--ak-hole) + 6%));
+  animation: ak-entry-open 0.85s cubic-bezier(0.5, 0, 0.75, 0) 0.25s forwards;
+}
+
+@keyframes ak-entry-open {
+  to { --ak-hole: 160%; }
+}
+
+@keyframes ak-entry-done {
+  to { visibility: hidden; }
+}
+
+.ak-entry-pumpkin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 134px;
+  height: auto;
+  margin: -61px 0 0 -67px;
+  filter: drop-shadow(0 0 26px rgb(255 160 40 / 95%));
+  animation: ak-entry-pumpkin 0.75s ease-in 0.15s forwards;
+}
+
+@keyframes ak-entry-pumpkin {
+  0% { transform: scale(1); opacity: 1; }
+  35% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(4.5); opacity: 0; }
+}
+
+.ak-entry-bat {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 40px;
+  margin: -10px 0 0 -20px;
+  color: #0b0710;
+  opacity: 0;
+  filter: drop-shadow(0 0 4px rgb(232 114 28 / 90%));
+  animation: ak-bat-scatter 0.8s cubic-bezier(0.2, 0.7, 0.4, 1) var(--ak-delay) forwards;
+}
+
+.ak-entry-bat svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: ak-flap 0.18s ease-in-out infinite alternate;
+}
+
+/* ---------- "Still brewing" categories ---------- */
+.ak-brew-shake {
+  animation: ak-shake 0.5s ease-in-out;
+}
+
+@keyframes ak-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px) rotate(-1deg); }
+  40% { transform: translateX(6px) rotate(1deg); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+.ak-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  padding: 12px 18px;
+  border: 1px solid var(--ak-pumpkin, #e8721c);
+  border-radius: 999px;
+  background: rgb(22 11 31 / 92%);
+  color: var(--ak-bone, #f3e3c3);
+  font-family: "IM Fell English", serif;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 22px rgb(91 31 115 / 70%), 0 0 10px rgb(232 114 28 / 40%);
+  transform: translateX(-50%);
+  animation: ak-toast 2.6s ease forwards;
+}
+
+.ak-toast svg {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  color: #8cff6a;
+  filter: drop-shadow(0 0 6px rgb(140 255 106 / 70%));
+}
+
+@keyframes ak-toast {
+  0% { opacity: 0; transform: translate(-50%, 20px); }
+  12%, 82% { opacity: 1; transform: translate(-50%, 0); }
+  100% { opacity: 0; transform: translate(-50%, 10px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ak-bat,
+  .ak-bat-svg,
+  .ak-ghost,
+  .ak-ghost-eye,
+  .ak-spider,
+  .ak-witch,
+  .ak-witch-svg,
+  .ak-lantern,
+  .ak-jack-face,
+  .ak-brew-shake {
+    animation: none;
+  }
+
+  .ak-lightning,
+  .ak-bolt,
+  .ak-entry,
+  .ak-burst {
+    display: none;
+  }
+
+  .ak-ghost { opacity: 0.6; }
+  .ak-witch { transform: translateX(62vw); }
+  .ak-bat-1 { transform: translateX(12vw); }
+  .ak-bat-2 { transform: translateX(80vw); }
+  .ak-bat-3 { transform: translateX(6vw); }
+  .ak-bat-4 { transform: translateX(70vw); }
+  .ak-toast { animation: none; }
+}

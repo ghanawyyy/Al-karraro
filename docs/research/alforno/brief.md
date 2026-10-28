@@ -9,7 +9,16 @@
 ## Route map
 | Source | Local | Files |
 | --- | --- | --- |
-| `/menu/` | `/` | `src/app/page.tsx`, `src/components/sites/alforno/*` |
+| `/menu/` | `/` | `src/app/page.tsx`, `menu-page.tsx` |
+| `/menu/breakfast/` | `/breakfast` | `src/app/[category]/page.tsx`, `category-page.tsx`, `menu-tabs.tsx` |
+| `/menu/salads-mezza/` | `/salads-mezza` | same |
+| `/menu/burgers-sandwiches/` | `/burgers-sandwiches` | same |
+| `/menu/3al-lebnene/` (home box "Grill, Shawarma & More") | `/3al-lebnene` | same |
+| `/menu/daily-dish/` | `/daily-dish` | same |
+
+Menu data for these pages lives in `src/components/sites/alforno/category-menus.ts` (extracted from the
+saved snapshots; every tab's item count matches the source's `data-count`). Italian, Sushi, Dessert, Kids,
+Drinks, Shisha, Suc'ara Coffee Shop and Cigar Lounge are not cloned yet and show a "still brewing" toast.
 
 ## Page structure (source)
 1. Logo `Al-Forno-logo-website.png` (501×160, shown at 175px wide)
@@ -31,7 +40,22 @@
 | User photo at 35% | `public/sites/alforno/karraro-photo.jpg`, fixed full-screen layer at `opacity: 0.35`. |
 | Icon per category | Lucide icons; custom cigar (Cigar Lounge) and hookah (Shisha) icons in `category-icons.tsx`. |
 
+## Category pages (source)
+- Header: `Banners*.jpg` (1920×974) with the Al Forno logo and the category name baked into the photo.
+- Sub-category filters (`.menu-filter .filter`, `data-default-filter`), then one price list per filter:
+  title chip + dotted leader + price chip, optional ingredients line. Burgers opens on "Beef Burgers".
+- Rebuilt with: banners graded orange/purple, the old logo covered by the Al Karraro badge, small
+  napkin/box logos blurred (`public/sites/alforno/banners/`); tabs as an accessible tablist; items in
+  1/2/3 columns (the source uses a single 30%-wide column); no photo layer on category pages.
+
+## Motion
+- Tap a category: pumpkin pops at the tap point, bats scatter, a witch swoops across, a portal closes
+  over the screen and the pumpkin moves to the center (`spooky-link.tsx`).
+- Next page: the pumpkin bursts and the portal opens (`portal-reveal.tsx`).
+- Ambient: witch crossing the moon, phasing ghosts with glowing eyes, candle-lit jack-o'-lanterns,
+  two soft lightning flashes every 11s (`haunt-layer.tsx`, `haunt.css`).
+- `prefers-reduced-motion` turns off all of it and links navigate immediately.
+
 ## Known gaps
-- Category boxes do not navigate: the saved snapshot strips their `onclick` targets, and the category
-  pages could not be fetched.
+- Eight categories still need their saved pages before they can be cloned.
 - The Lore webfont (`LORE-Regular.ttf`) was not in the snapshot; IM Fell English stands in.

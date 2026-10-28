@@ -17,17 +17,19 @@ export type MenuCategoryId =
 export interface MenuCategory {
   id: MenuCategoryId;
   title: string;
+  /** Path of the cloned category page, when it exists (source: alfornogourmet.com/menu/<slug>/). */
+  slug?: string;
   /** The live site hides this box with `.menu-box[onclick*="take-away-only"] { display: none }`. */
   hidden?: boolean;
 }
 
 // Order and labels copied from alfornogourmet.com/menu/ (saved 2026-10-28).
 export const menuCategories: MenuCategory[] = [
-  { id: "breakfast", title: "Breakfast" },
-  { id: "salads-mezza", title: "Salads & Mezza" },
-  { id: "burgers-sandwiches", title: "Burgers & Sandwiches" },
-  { id: "grill-shawarma", title: "Grill, Shawarma & More" },
-  { id: "daily-dish", title: "Daily Dish" },
+  { id: "breakfast", title: "Breakfast", slug: "breakfast" },
+  { id: "salads-mezza", title: "Salads & Mezza", slug: "salads-mezza" },
+  { id: "burgers-sandwiches", title: "Burgers & Sandwiches", slug: "burgers-sandwiches" },
+  { id: "grill-shawarma", title: "Grill, Shawarma & More", slug: "3al-lebnene" },
+  { id: "daily-dish", title: "Daily Dish", slug: "daily-dish" },
   { id: "italian", title: "Italian" },
   { id: "sushi", title: "Sushi" },
   { id: "dessert", title: "Dessert" },
