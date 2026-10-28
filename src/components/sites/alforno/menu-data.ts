@@ -1,0 +1,47 @@
+export type MenuCategoryId =
+  | "breakfast"
+  | "salads-mezza"
+  | "burgers-sandwiches"
+  | "grill-shawarma"
+  | "daily-dish"
+  | "italian"
+  | "sushi"
+  | "dessert"
+  | "kids"
+  | "drinks"
+  | "shisha"
+  | "take-away-only"
+  | "sucara-coffee-shop"
+  | "cigar-lounge";
+
+export interface MenuCategory {
+  id: MenuCategoryId;
+  title: string;
+  /** The live site hides this box with `.menu-box[onclick*="take-away-only"] { display: none }`. */
+  hidden?: boolean;
+}
+
+// Order and labels copied from alfornogourmet.com/menu/ (saved 2026-10-28).
+export const menuCategories: MenuCategory[] = [
+  { id: "breakfast", title: "Breakfast" },
+  { id: "salads-mezza", title: "Salads & Mezza" },
+  { id: "burgers-sandwiches", title: "Burgers & Sandwiches" },
+  { id: "grill-shawarma", title: "Grill, Shawarma & More" },
+  { id: "daily-dish", title: "Daily Dish" },
+  { id: "italian", title: "Italian" },
+  { id: "sushi", title: "Sushi" },
+  { id: "dessert", title: "Dessert" },
+  { id: "kids", title: "Kids" },
+  { id: "drinks", title: "Drinks" },
+  { id: "shisha", title: "Shisha" },
+  { id: "take-away-only", title: "Take Away Only", hidden: true },
+  { id: "sucara-coffee-shop", title: "Suc'ara Coffee Shop" },
+  { id: "cigar-lounge", title: "Cigar Lounge" },
+];
+
+export const branches = [
+  { name: ".KHALDEH.", address: "Al Oumara Bldg . Khaldeh Main Road" },
+  { name: ".VERDUN.", address: "Rachid Karame Street . Verdun Road" },
+];
+
+export const appStoreUrl = "https://marketing.suppy.app/?cp=25Z17C15T54B05Z";
