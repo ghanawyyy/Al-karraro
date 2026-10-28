@@ -23,5 +23,6 @@ export default async function Page(props: CategoryPageProps) {
   const { category } = await props.params;
   const menu = getCategoryMenu(category);
   if (!menu) notFound();
-  return <CategoryPage menu={menu} />;
+  // Keyed so tabs and the entrance animation reset when hopping between categories.
+  return <CategoryPage key={menu.slug} menu={menu} />;
 }

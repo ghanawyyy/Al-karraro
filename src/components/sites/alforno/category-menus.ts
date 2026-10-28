@@ -23,7 +23,7 @@ export interface CategoryMenu {
 
 // Extracted from saved snapshots of alfornogourmet.com/menu/<slug>/ (2026-10-28).
 // Tab order, labels, item order and wording are the source's; "8.50$" was normalized to "$8.50" and
-// "Alforno" in dish names was renamed to "Al Karraro".
+// "Alforno" in dish names was renamed to "Al Karraro"; the Dessert tab "ICE CREAM" was title-cased.
 export const categoryMenus: CategoryMenu[] = [
   {
     slug: "breakfast",
@@ -833,6 +833,619 @@ export const categoryMenus: CategoryMenu[] = [
             price: "$14.00",
             description: "Baked ground meat and bulgur pie, served with yogurt and cucumber salad",
           },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "italian",
+    categoryId: "italian",
+    title: "Italian",
+    banner: "/sites/alforno/banners/italian.jpg",
+    defaultTab: "pizza",
+    tabs: [
+      {
+        id: "pizza",
+        label: "Wood-Fired Pizza",
+        items: [
+          {
+            title: "Margherita",
+            price: "$12.00",
+            description: "Classic Neapolitan with tomato sauce, mozzarella, and fresh basil leaves.",
+          },
+          {
+            title: "Pepperoni",
+            price: "$14.00",
+            description: "Zesty tomato sauce, mozzarella, and layers of beef pepperoni.",
+          },
+          {
+            title: "Truffle Mushroom Pizza",
+            price: "$18.00",
+            description: "Aromatic truffle oil, mushrooms, mozzarella, and wild rucola topped with parmesan crust.",
+          },
+          {
+            title: "Four Cheese Pizza",
+            price: "$16.00",
+            description: "A rich blend of mozzarella, gorgonzola, parmesan, and ricotta cheeses melted on golden dough.",
+          },
+          {
+            title: "Veggie Garden Pizza",
+            price: "$14.00",
+            description: "A colorful mix of bell peppers, Zucchini, Eggplant, Mushroom, and cherry tomatoes over a tomato-mozzarella base.",
+          },
+          {
+            title: "Seafood Pizza",
+            price: "$18.00",
+            description: "Shrimp, calamari, and mussels, fresh parsley, and mozzarella on a tomato sauce base topped with anchovy",
+          },
+          {
+            title: "Quattro Stagioni Pizza",
+            price: "$16.00",
+            description: "Smoked turkey, mushrooms, artichokes, sundried tomato and olives",
+          },
+        ],
+      },
+      {
+        id: "pasta-italian",
+        label: "Pasta",
+        items: [
+          {
+            title: "Spaghetti Pomodoro Basil",
+            price: "$10.00",
+            description: "Tomato sauce with fresh basil and olive oil.",
+          },
+          {
+            title: "Penne Arrabbiata",
+            price: "$10.00",
+            description: "Pasta in a spicy tomato sauce with chili, garlic, and a sprinkle of fresh parsley",
+          },
+          {
+            title: "Fettuccine Alfredo",
+            price: "$13.00",
+            description: "Fettuccine tossed in creamy Alfredo sauce and parmesan. Optional add-ons: grilled chicken 3.5$ or shrimp 5.5$",
+          },
+          {
+            title: "Pesto Pasta with Grilled Vegetables",
+            price: "$14.00",
+            description: "Tri-color Pasta tossed in a basil pesto with a medley of grilled seasonal vegetables",
+          },
+          {
+            title: "Seafood Pasta n Bisque Sauce",
+            price: "$16.00",
+            description: "Shrimp, calamari, and mussels in a creamy bisque sauce, served over pasta.",
+          },
+          {
+            title: "Parmigiana di Melanzane (Eggplant Parmigiana)",
+            price: "$10.00",
+            description: "Eggplant layered with tomato sauce and melted mozzarella, finished with olive oil and herbs",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "sushi",
+    categoryId: "sushi",
+    title: "Sushi",
+    banner: "/sites/alforno/banners/sushi.jpg",
+    defaultTab: "starters",
+    tabs: [
+      {
+        id: "starters",
+        label: "Starters",
+        items: [
+          { title: "Edamame", price: "$5.00" },
+          {
+            title: "Marinated Salmon",
+            price: "$18.00",
+            description: "salmon, mix sesame, jalapeno, namuro sauce",
+          },
+          { title: "Dynamite Shrimp / 5pcs", price: "$9.50" },
+        ],
+      },
+      {
+        id: "salads-sushi-2",
+        label: "Salads",
+        items: [
+          {
+            title: "Crispy Salmon Salad",
+            price: "$22.00",
+            description: "Salmon, crispy , exotic sauce, shredded nori",
+          },
+          {
+            title: "Spicy Salmon Salad",
+            price: "$24.00",
+            description: "Salmon, avocado, spicy sauce, orange tobiko, shredded nori",
+          },
+          {
+            title: "Sensation Salmon Salad",
+            price: "$21.00",
+            description: "Salmon , Mix Sesame , Marinated sauce",
+          },
+          {
+            title: "Crab Salad",
+            price: "$9.00",
+            description: "Crab sticks, lollo rosso, carrots, cucumber, orange tobiko",
+          },
+        ],
+      },
+      {
+        id: "sashimi",
+        label: "Sashimi (3 pcs)",
+        items: [
+          { title: "Salmon Sashimi", price: "$8.00" },
+          { title: "Crab Sashimi", price: "$3.00" },
+          { title: "Tuna Sashimi", price: "$8.00" },
+          { title: "Shrimp Sashimi", price: "$4.00" },
+        ],
+      },
+      {
+        id: "sushi-2-pcs",
+        label: "Sushi (2 pcs)",
+        items: [
+          { title: "Salmon", price: "$5.00" },
+          { title: "Crab", price: "$3.00" },
+          { title: "Avocado", price: "$3.00" },
+          { title: "Tuna", price: "$5.00" },
+          { title: "Shrimp", price: "$4.00" },
+          { title: "SALMON HARMONY", price: "$18.00" },
+          { title: "SunBurst", price: "$17.00" },
+          { title: "skyeight", price: "$16.00" },
+          { title: "zengarden", price: "$14.00" },
+        ],
+      },
+      {
+        id: "hoso-3-pcs",
+        label: "Hoso (3 pcs)",
+        items: [
+          { title: "Salmon", price: "$5.00" },
+          { title: "Tuna", price: "$4.5" },
+          { title: "Crab", price: "$3.00" },
+          { title: "Avocado", price: "$3.00" },
+        ],
+      },
+      {
+        id: "urakami-4-pcs",
+        label: "Urakami (4 pcs)",
+        items: [
+          {
+            title: "Crispy Phila Shrimp",
+            price: "$7.50",
+            description: "Spicy salmon avocado, crispy topping shrimp and philadelphia, mix sesam",
+          },
+          {
+            title: "Crispy California",
+            price: "$5.00",
+            description: "Crab stick, cucumber, avocado, crispy",
+          },
+          { title: "Crispy Crazy", price: "$6.00", description: "Crab mix, crispy, crab mix topping" },
+          {
+            title: "Crispy Crazy Salmon",
+            price: "$9.00",
+            description: "Salmon, avocado, crispy wrap, topping crazy mix",
+          },
+          {
+            title: "Crispy Special Mango",
+            price: "$7.50",
+            description: "Mango, crab sticks, salmon, crispy",
+          },
+          {
+            title: "Crispy Volcano",
+            price: "$9.00",
+            description: "Tuna, avocado, crispy, spicy tuna and avo topping",
+          },
+          { title: "Salmon Sesame", price: "$7.00", description: "Salmon, avocado" },
+          { title: "California Sesame", price: "$5.00", description: "Crab stick, cucumber, avocado" },
+          { title: "Crazy Sesame", price: "$5.55", description: "Crab mix, sesame seed, crab mix topping" },
+          {
+            title: "Crazy California Sesame",
+            price: "$5.00",
+            description: "Crab stick, cucumber, avocado, crazy mix topping",
+          },
+          { title: "Salmon Tobiko", price: "$10.00", description: "Salmon, cheese, avocado, orange tobiko" },
+          { title: "Crazy Tobiko", price: "$6.00", description: "Wrap tobico, Crab mix, topping crazy mix" },
+          { title: "Shrimp Tobiko", price: "$7.00", description: "Shrimp, avocado, tobiko" },
+        ],
+      },
+      {
+        id: "special-urakami-4-pcs",
+        label: "Special Urakami (4 pcs)",
+        items: [
+          {
+            title: "Special Salmon",
+            price: "$11.00",
+            description: "Salmon, avocado, spicy sauce wrap salmon, avocado",
+          },
+          {
+            title: "Triple Mango Roll",
+            price: "$11.00",
+            description: "Salmon, cheese,wrap crab, salmon, mango,orange tobiko, white sauce",
+          },
+          {
+            title: "Black Ô-sake",
+            price: "$9.50",
+            description: "Rice, crispy, salmon, cream cheese, black tobiko, mango, crab mix, light teriyaki",
+          },
+          {
+            title: "Double Tuna",
+            price: "$8.00",
+            description: "Tuna, avocado, wrap tuna jalapeno, sweet chili sauce",
+          },
+          { title: "Salmon Tuna Roll", price: "$9.00", description: "Salmon, avocado, wrap salmon, tuna" },
+          { title: "Double Shrimp", price: "$7.50", description: "Spicy shrimp, wrap shrimp & avocado" },
+          {
+            title: "Duo Maki",
+            price: "$9.00",
+            description: "Salmon wrap, Crab mix, salmon topping, mango, light teriyaki",
+          },
+          {
+            title: "Sweet Maki",
+            price: "$9.00",
+            description: "Wrap Salmon, carrots, avocado, crabsticks, topping salmon, mango, teriyaki sauce",
+          },
+          {
+            title: "Spicy Crazy Extreme",
+            price: "$6.50",
+            description: "Crab mix, Avcado ,togarashi, mix sesame , spicy sauce",
+          },
+          {
+            title: "Spicy Salmon Extreme",
+            price: "$7.00",
+            description: "Salmon, Avcado ,togarashi, mix sesame , spicy sauce",
+          },
+          {
+            title: "Tempura Special Roll",
+            price: "$8.50",
+            description: "Shrimp tempura, avocado, wrap avocado, sauce",
+          },
+          {
+            title: "Caramelized Salmon",
+            price: "$8.00",
+            description: "Salmon, Cucumber, Chives, Crispy, Spicy Sauce",
+          },
+          {
+            title: "Fusion Shrimps",
+            price: "$7.00",
+            description: "Shrimp, mango, avocado, crispy, caramel sauce",
+          },
+          {
+            title: "Ô-sake Touch",
+            price: "$10.50",
+            description: "tempura shrimp, Salmon, tuna, avocado, cucumber, chives, orange tobiko, mix sesame, spicy sauce",
+          },
+        ],
+      },
+      {
+        id: "naked-4-pcs",
+        label: "Naked (4 pcs)",
+        items: [
+          { title: "Cotton Roll", price: "$7.00", description: "Salmon, cheese, avocado" },
+          {
+            title: "Naked Philadelphia",
+            price: "$8.00",
+            description: "Salmon, cheese, avocado, orange tobiko",
+          },
+          { title: "Naked Crispy Shrimp", price: "$5.00", description: "Shrimp, cucumber, avocado, crispy" },
+          { title: "Fuji Roll", price: "$7.50", description: "Salmon, avocado, sesame seeds" },
+        ],
+      },
+      {
+        id: "dragons-8-pcs",
+        label: "Dragons (8 pcs)",
+        items: [
+          {
+            title: "Seasonal Dragon",
+            price: "$13.50",
+            description: "Shrimp tempura, avocado, mango, wrap mango / avocado, teryaki, orange tobiko, white sauce",
+          },
+        ],
+      },
+      {
+        id: "temaki",
+        label: "Temaki",
+        items: [
+          { title: "Shrimp", price: "$5.50", description: "Shrimp tempura, avocado, spicy shrimp" },
+          { title: "Salmon", price: "$8.50", description: "Salmon, white sauce, Mix sesame" },
+          { title: "Spicy Tuna", price: "$8.50", description: "Spicy tuna, avocado" },
+          { title: "Crab", price: "$5.50", description: "Crab mix, breaded crabstick, avocado, white sauce" },
+          { title: "Spicy Salmon", price: "$8.50", description: "Spicy salmon, Mix sesame" },
+        ],
+      },
+      {
+        id: "burritos",
+        label: "Burritos",
+        items: [
+          {
+            title: "Crazy Burrito",
+            price: "$11.00",
+            description: "Crab mix, breaded crab, lollo rosso, crispy, orange tobiko, avocado, cucumber, caramel sauce",
+          },
+          {
+            title: "Spicy Salmon Burrito",
+            price: "$17.00",
+            description: "Salmon, spicy shrimp, crispy, orange tobiko, avocado, lollo rosso, spicy sauce",
+          },
+          {
+            title: "Spicy Shrimp Burrito",
+            price: "$15.00",
+            description: "Tobiko, spicy sauce, shrimp tempura, spicy shrimp, carrots, crispy, avocado, lollo rosso",
+          },
+          {
+            title: "Spicy Tuna Burrito",
+            price: "$20.00",
+            description: "Rice, nori, tuna, tobiko, cheese, cucumber, avocado carrots, jalapeño, tortilla, lollo rosso, spicy sauce",
+          },
+        ],
+      },
+      {
+        id: "sets",
+        label: "Sets",
+        items: [
+          {
+            title: "Mix Set / 16 pcs",
+            price: "$21.00",
+            description: "Crispy crazy, sesame california, tobiko salmon, tempura special roll",
+          },
+          {
+            title: "Cooked Through Set / 20 pcs",
+            price: "$21.00",
+            description: "Tempura special roll, crispy crazy, crispy phila shrimp, sesame california, double shrimp",
+          },
+          {
+            title: "Salmon Addict Set / 24 pcs",
+            price: "$49.00",
+            description: "Salmon sashimi, sushi salmon, hoso salmon, tobiko salmon, crispy salmon crazy, triple mango, special salmon",
+          },
+          {
+            title: "Duo Set / 25 pcs",
+            price: "$44.00",
+            description: "Sashimi salmon, sushi shrimp, sesame crazy, tobiko salmon tartar, duo maki, double shrimp, tempura special roll",
+          },
+          {
+            title: "Sharing Set / 35 pcs",
+            price: "$55.00",
+            description: "Salmon sushi, shrimp sushi, hoso crab, crispy crazy, sesame california, naked phila, tempura special roll, triple mango, double tuna, special salmon",
+          },
+          {
+            title: "The Ô-Sake Set / 50 pcs",
+            price: "$70.00",
+            description: "Sashimi salmon, sushi salmon, hoso salmon, sushi crab, crispy crazy, crispy california, crispy phila shrimp, sesame salmon, tempura special roll, special salmon, sweet maki, double shrimp, crispy volcano, sesame crazy california",
+          },
+          {
+            title: "The OMG Set / 80 pcs",
+            price: "$129.00",
+            description: "Sashimi salmon *2, sushi salmon, sushi shrimp, hoso salmon, hoso avocado, crispy crazy, crispy california, crispy salmon crazy, crispy phila shrimp, sesame crazy california, sesame salmon, tobiko salmon, tobiko crazy, duo maki, tempura special roll, salmon tuna roll, triple mango, unagi roll, shrimp double, cotton roll, fuji roll",
+          },
+          { title: "FLYING BOAT / 20PCS", price: "$23.00" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "dessert",
+    categoryId: "dessert",
+    title: "Dessert",
+    banner: "/sites/alforno/banners/dessert.jpg",
+    defaultTab: "cold-dessert",
+    tabs: [
+      {
+        id: "cold-dessert",
+        label: "Cold Dessert",
+        items: [
+          { title: "Moufataka", price: "$4.00", description: "The Beiruti traditional dessert" },
+          {
+            title: "Saint Sebastian Pisatchio",
+            price: "$7.50",
+            description: "Caramelized crust, creamy center, optional toppings.",
+          },
+          {
+            title: "Double Chocolate Tart Framboise",
+            price: "$8.00",
+            description: "Dark chocolate ganache, framboise glaze, butter crust.",
+          },
+          {
+            title: "Tiramisu",
+            price: "$8.50",
+            description: "Espresso-soaked ladyfingers, mascarpone, cocoa.",
+          },
+          { title: "Dolce Cake (Tre Lèchée) – Lotus", price: "$7.00" },
+          {
+            title: "Dolce Cake (Tre Lèchée) – Pistachio",
+            price: "$9.00",
+            description: "Ultra-smooth caramel-pistachio sponge with a thick glaze.",
+          },
+          {
+            title: "Saint Sebastian Basque Cheesecake",
+            price: "$6.00",
+            description: "(Chocolate, Caramel, or Red Fruit) | Caramelized crust, creamy center, optional toppings.",
+          },
+        ],
+      },
+      {
+        id: "warm-dessert",
+        label: "Warm Dessert",
+        items: [
+          { title: "Fondant au Chocolate", price: "$9.00", description: "Served with vanilla ice cream" },
+          {
+            title: "Cookie Dough with Belgian Chocolate",
+            price: "$10.00",
+            description: "Warm cookie dough center, Belgian chocolate.",
+          },
+          {
+            title: "Warm Brownie with Ice Cream",
+            price: "$10.00",
+            description: "Fudgy brownie, hot, with vanilla ice cream.",
+          },
+          {
+            title: "Pain perdu",
+            price: "$12.50",
+            description: "French toast, golden and custardy, served with a scoop of ice cream.",
+          },
+        ],
+      },
+      {
+        id: "ice-cream-dessert",
+        label: "Ice Cream",
+        items: [
+          { title: "Passion Scoop", price: "$2.20" },
+          { title: "Chocolate", price: "$2.20" },
+          { title: "Mango", price: "$ 2.20" },
+          { title: "Vanille", price: "$2.20" },
+          { title: "Lotus", price: "$2.20" },
+          { title: "Bubble", price: "$2.20" },
+          { title: "Strawberry", price: "$ 2.20" },
+          { title: "Pistachio", price: "$3.30" },
+          { title: "Dark chocolate", price: "$3.30" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "drinks",
+    categoryId: "drinks",
+    title: "Drinks",
+    banner: "/sites/alforno/banners/drinks.jpg",
+    defaultTab: "soft-drinks-water",
+    tabs: [
+      {
+        id: "soft-drinks-water",
+        label: "Soft Drinks & Water",
+        items: [
+          { title: "Water Small", price: "$1.50" },
+          { title: "Water Large", price: "$2.50" },
+          { title: "St Pellegrino 330 ML", price: "$3.50" },
+          { title: "St Pellegrino 750 ML", price: "$5.00" },
+          { title: "Pepsi", price: "$2.50" },
+          { title: "Diet Pepsi", price: "$2.50" },
+          { title: "7up", price: "$2.50" },
+          { title: "Diet 7up", price: "$2.50" },
+          { title: "Mirinda", price: "$2.50" },
+          { title: "Energy Drink", price: "$4.50" },
+        ],
+      },
+      {
+        id: "fresh-juices",
+        label: "Fresh Juices",
+        items: [
+          { title: "Orange", price: "$3.50" },
+          { title: "Lemonade", price: "$3.00" },
+          { title: "Frozen Lemonade", price: "$5.00", description: "Minted Or Regular" },
+          { title: "Strawberry", price: "$4.00" },
+          { title: "Cocktail", price: "$4.00", description: "Strawberry, Banana, Milk" },
+          { title: "Mango", price: "$4.50" },
+          { title: "Pomegranate", price: "$5.50" },
+        ],
+      },
+      {
+        id: "mocktails-drinks",
+        label: "Mocktails",
+        items: [
+          { title: "Passion Fruit Mojito", price: "$4.50" },
+          { title: "Classic Lime Mojito", price: "$4.50" },
+          { title: "Wild Berries Cooler", price: "$4.50" },
+          { title: "Hibiscus Iced Tea", price: "$4.50" },
+          { title: "Lemon Iced Tea", price: "$4.50" },
+          { title: "Peach Iced Tea", price: "$4.50" },
+        ],
+      },
+      {
+        id: "milkshakes-drinks",
+        label: "Milkshakes",
+        items: [
+          { title: "Classics", price: "$7.00", description: "Vanilla, Chocolate, Strawberry" },
+          { title: "Cookies & Cream Shake", price: "$7.00" },
+          { title: "Lotus Salted Caramel", price: "$6.00" },
+          { title: "Bubbly", price: "$6.00" },
+          { title: "Power Mix", price: "$6.00" },
+        ],
+      },
+      {
+        id: "cold-coffee-2",
+        label: "Cold Coffee",
+        items: [
+          { title: "Classic Frappé", price: "$5.00", description: "Original, Mocha, Caramel, White" },
+          { title: "Toffee Nut Frappé", price: "$5.00" },
+          { title: "Mocha Tiramisu", price: "$5.00" },
+          { title: "Iced Mocha", price: "$5.00" },
+          { title: "Iced latte", price: "$5.00" },
+          { title: "Iced Matcha", price: "$5.00" },
+          { title: "Machiatto", price: "$5.00" },
+        ],
+      },
+      {
+        id: "smoothies-drinks",
+        label: "Smoothies",
+        items: [
+          { title: "Classic Mongo", price: "$7.00" },
+          { title: "Mango Passion", price: "$8.00" },
+          { title: "Strawberry Lychee", price: "$7.00" },
+          { title: "Forest Fruits", price: "$7.00" },
+          { title: "Classic Strawberry", price: "$6.00" },
+        ],
+      },
+      {
+        id: "hot-beverages",
+        label: "Hot Beverages",
+        items: [
+          { title: "Espresso", price: "$2.50" },
+          { title: "Turkish Coffee", price: "$2.50" },
+          { title: "Americano", price: "$4.00" },
+          { title: "Doppio", price: "$3.50", description: "Double Espresso" },
+          { title: "Cappuccino", price: "$4.50" },
+          { title: "Latte", price: "$4.00" },
+          { title: "Flat White", price: "$4.00" },
+          { title: "Spanish Latte", price: "$5.00" },
+          { title: "Caramel Macchiato", price: "$5.00" },
+          { title: "Hot Chocolate", price: "$5.50" },
+          { title: "Hot Matcha", price: "$5.50" },
+          {
+            title: "White Coffee",
+            price: "$2.50",
+            description: "add on extra flavor, add syrup, sugar free syrup, extra espresso shot",
+          },
+          { title: "Tea Selection", price: "$2.20" },
+          { title: "Espresso Decaf", price: "$3.00" },
+          { title: "Add Vanilla Syrup", price: "$1.00" },
+          { title: "Add Hazelnut Syrup", price: "$1.00" },
+          { title: "Add Caramel Syrup", price: "$1.00" },
+          { title: "Add Sugar Free Vanilla Syrup", price: "$1.00" },
+          { title: "Add Sugar Free Caramel Syrup", price: "$1.00" },
+          { title: "Extra Espresso Shot", price: "$1.50" },
+          { title: "Extra Milk", price: "$1.50" },
+          { title: "Extra Oat Milk", price: "$2.50" },
+          { title: "Extra Soya Milk", price: "$2.50" },
+          { title: "Extra Almond Milk", price: "$2.50" },
+          { title: "Longo", price: "$2.50" },
+          { title: "Pumpkin Latte", price: "$6.00" },
+          { title: "Toffee Nut Latte", price: "$6.00" },
+        ],
+      },
+      {
+        id: "affogato-al-caffe",
+        label: "Affogato Al Caffè",
+        items: [
+          { title: "Vanilla Espresso Affogato", price: "$5.50" },
+          { title: "Pistachio Espresso Affogato", price: "$8.00" },
+          { title: "Caramel Espresso Affogato", price: "$6.50" },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "shisha",
+    categoryId: "shisha",
+    title: "Shisha",
+    banner: "/sites/alforno/banners/shisha.jpg",
+    defaultTab: "shisha",
+    tabs: [
+      {
+        id: "shisha",
+        label: "Shisha",
+        items: [
+          { title: "Moassal Flavor", price: "$12.00" },
+          { title: "Ajami", price: "$12.00" },
+          { title: "Extra Change Head", price: "$6.00" },
+          { title: "Extra Hose", price: "$2.00" },
         ],
       },
     ],

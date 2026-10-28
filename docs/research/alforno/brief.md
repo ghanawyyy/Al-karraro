@@ -15,10 +15,15 @@
 | `/menu/burgers-sandwiches/` | `/burgers-sandwiches` | same |
 | `/menu/3al-lebnene/` (home box "Grill, Shawarma & More") | `/3al-lebnene` | same |
 | `/menu/daily-dish/` | `/daily-dish` | same |
+| `/menu/italian/` | `/italian` | same |
+| `/menu/sushi/` | `/sushi` | same |
+| `/menu/dessert/` | `/dessert` | same |
+| `/menu/drinks/` | `/drinks` | same |
+| `/menu/shisha/` | `/shisha` | same |
 
 Menu data for these pages lives in `src/components/sites/alforno/category-menus.ts` (extracted from the
-saved snapshots; every tab's item count matches the source's `data-count`). Italian, Sushi, Dessert, Kids,
-Drinks, Shisha, Suc'ara Coffee Shop and Cigar Lounge are not cloned yet and show a "still brewing" toast.
+saved snapshots; every tab's item count matches the source's `data-count`). Kids,
+Suc'ara Coffee Shop and Cigar Lounge are not cloned yet and show a "still brewing" toast.
 
 ## Page structure (source)
 1. Logo `Al-Forno-logo-website.png` (501×160, shown at 175px wide)
@@ -44,9 +49,17 @@ Drinks, Shisha, Suc'ara Coffee Shop and Cigar Lounge are not cloned yet and show
 - Header: `Banners*.jpg` (1920×974) with the Al Forno logo and the category name baked into the photo.
 - Sub-category filters (`.menu-filter .filter`, `data-default-filter`), then one price list per filter:
   title chip + dotted leader + price chip, optional ingredients line. Burgers opens on "Beef Burgers".
+- Shisha has no sub-category filters; its banner is an abstract green pattern without logo or title.
+- Drinks' banner (`Banners7.jpg`, set by `.page-id-13300 .page-header` CSS) was not in the saved file.
+  Stand-ins for both: the Shisha pattern gradient-mapped (orange/purple for Shisha, blood-red/purple
+  for Drinks) with the badge and a Gloria Hallelujah title in the banners' hand-lettered style.
 - Rebuilt with: banners graded orange/purple, the old logo covered by the Al Karraro badge, small
   napkin/box logos blurred (`public/sites/alforno/banners/`); tabs as an accessible tablist; items in
   1/2/3 columns (the source uses a single 30%-wide column); no photo layer on category pages.
+
+## Added navigation
+- Category rail under each banner (scrolls on phones, wraps on wide screens) and previous/next links
+  under each price list (`category-nav.tsx`); both use the tap transition.
 
 ## Motion
 - Tap a category: pumpkin pops at the tap point, bats scatter, a witch swoops across, a portal closes
@@ -57,5 +70,6 @@ Drinks, Shisha, Suc'ara Coffee Shop and Cigar Lounge are not cloned yet and show
 - `prefers-reduced-motion` turns off all of it and links navigate immediately.
 
 ## Known gaps
-- Eight categories still need their saved pages before they can be cloned.
+- Kids, Suc'ara Coffee Shop and Cigar Lounge still need their saved pages.
+- The real Drinks banner photo still needs to be saved and swapped in.
 - The Lore webfont (`LORE-Regular.ttf`) was not in the snapshot; IM Fell English stands in.

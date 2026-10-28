@@ -26,6 +26,7 @@ interface SpookyLinkProps {
   className?: string;
   children: ReactNode;
   "aria-label"?: string;
+  "aria-current"?: "page";
 }
 
 export function SpookyLink({ href, className, children, ...rest }: SpookyLinkProps) {

@@ -31,7 +31,8 @@ export function MenuTabs({ tabs, defaultTab, label }: MenuTabsProps) {
 
   return (
     <>
-      <div className="ak-tabs" role="tablist" aria-label={label} onKeyDown={handleKeyDown}>
+      {/* Shisha has a single list and no sub-category filters on the source. */}
+      <div className="ak-tabs" role="tablist" aria-label={label} onKeyDown={handleKeyDown} hidden={tabs.length < 2}>
         {tabs.map((tab, i) => {
           const selected = tab.id === active.id;
           return (

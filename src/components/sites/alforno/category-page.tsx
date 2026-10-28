@@ -6,6 +6,7 @@ import "./category.css";
 import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import type { CategoryMenu } from "./category-menus";
+import { CategoryPager, CategoryRail } from "./category-nav";
 import { HauntLayer } from "./haunt-layer";
 import { MenuFooter } from "./menu-footer";
 import { MenuTabs } from "./menu-tabs";
@@ -29,8 +30,11 @@ export function CategoryPage({ menu }: { menu: CategoryMenu }) {
         <h1 className="sr-only">{menu.title}</h1>
       </header>
 
+      <CategoryRail current={menu.categoryId} />
+
       <main className="ak-category-main">
         <MenuTabs tabs={menu.tabs} defaultTab={menu.defaultTab} label={`${menu.title} sections`} />
+        <CategoryPager current={menu.categoryId} />
       </main>
 
       <MenuFooter />
