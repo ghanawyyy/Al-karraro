@@ -30,7 +30,8 @@ export function CukarraEmblem({ className }: { className?: string }) {
           <textPath href="#ak-cukarra-ring">{RING_TEXT}</textPath>
         </text>
       </g>
-      <text x="51" y="70" textAnchor="middle" className="ak-cukarra-emblem-c">
+      {/* Pinyon Script's "C" carries a wide left bearing; x/y are tuned so its ink sits on the ring's centre. */}
+      <text x="38.7" y="69.5" textAnchor="middle" className="ak-cukarra-emblem-c">
         C
       </text>
     </svg>
