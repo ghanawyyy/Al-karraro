@@ -23,6 +23,7 @@
 | `/menu/kids/` | `/kids` | same |
 | `/menu/cigar-lounge/` | `/cigar-lounge` | same |
 | `/menu/sucara/` | `/sucara` | `src/app/sucara/page.tsx`, `sucara-page.tsx`, `sucara.css` |
+| `/menu/sucara/<section>/` (food-bites, salads, sushi, viennoiserie, cakes) | `/sucara/<section>` | `src/app/sucara/[section]/page.tsx`, `sucara-section-page.tsx`, `sucara-menus.ts` |
 
 Menu data for these pages lives in `src/components/sites/alforno/category-menus.ts` (extracted from the
 saved snapshots; every tab's item count matches the source's `data-count`). Every category on the menu now has a page. Suc'ara's eight sections (Food Bites … Ice Cream) are not
@@ -66,6 +67,14 @@ cloned yet and show a "still brewing" toast.
   the wordmark in bone with a pumpkin apostrophe, purple boxes with pumpkin icons, and Questrial for
   ITC Avant Garde. Originals kept in `public/sites/alforno/sucara/*-original.*`.
 
+## Suc'ara sections
+- Source: petal-pattern header (`sucara-logo-web-banner…jpg`), the 100px "S" emblem, filters and a lilac
+  price list in ITC Avant Garde; the site footer is hidden on these pages (so it is left out here too).
+- Rebuilt with the pattern in night purple, the emblem ring in bone with a pumpkin "S", lilac chips and
+  pumpkin prices in Questrial, a Suc'ara section rail and previous/next links, and "Back to Suc'ara".
+- Prices are bare numbers with a CSS "$" in the source; written as "$4.00". "Alforno Specialties" was renamed.
+- Beverages, Frisco & Swirls and Ice Cream are not saved yet and still say "still brewing".
+
 ## Contact details (requested changes, every page with the footer)
 - WhatsApp mark recolored pumpkin/ink, number "+961 81 732 183" linked to wa.me; hotline "STFU".
 
@@ -84,7 +93,7 @@ cloned yet and show a "still brewing" toast.
 - `prefers-reduced-motion` turns off all of it and links navigate immediately.
 
 ## Known gaps
-- Suc'ara's eight section pages still need to be saved.
+- Suc'ara's Beverages, Frisco & Swirls and Ice Cream pages still need to be saved.
 - Kids and Cigar Lounge reuse Shisha's plain banner pattern on the source; they get their own palettes here.
 - The real Drinks banner photo still needs to be saved and swapped in.
 - The Lore webfont (`LORE-Regular.ttf`) was not in the snapshot; IM Fell English stands in.

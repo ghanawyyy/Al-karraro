@@ -5,25 +5,13 @@ import "./alforno.css";
 import "./category.css";
 import "./sucara.css";
 
-import type { LucideIcon } from "lucide-react";
-import { ArrowLeft, CakeSlice, Coffee, Croissant, Fish, IceCreamBowl, IceCreamCone, Salad, Sandwich } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import Image from "next/image";
 import { BrewingBox } from "./brewing-box";
 import { HauntLayer } from "./haunt-layer";
 import { PortalReveal } from "./portal-reveal";
 import { SpookyLink } from "./spooky-link";
-
-// Order and labels copied from alfornogourmet.com/menu/sucara/ (saved 2026-10-28). Their pages aren't cloned yet.
-const sucaraSections: { title: string; icon: LucideIcon }[] = [
-  { title: "Food Bites", icon: Sandwich },
-  { title: "Salads", icon: Salad },
-  { title: "Sushi", icon: Fish },
-  { title: "Viennoiserie", icon: Croissant },
-  { title: "Cakes", icon: CakeSlice },
-  { title: "Beverages", icon: Coffee },
-  { title: "Frisco & Swirls", icon: IceCreamBowl },
-  { title: "Ice Cream", icon: IceCreamCone },
-];
+import { sucaraLanding } from "./sucara-sections";
 
 /** Source: the Suc'ara landing page — its own lilac pattern, logo and filled boxes, and no footer. */
 export function SucaraPage() {
@@ -50,14 +38,23 @@ export function SucaraPage() {
           </div>
           <h1 className="sr-only">Suc&apos;ara Coffee Shop</h1>
           <nav className="menu-options" aria-label="Suc'ara menu">
-            {sucaraSections.map(({ title, icon: Icon }) => (
-              <BrewingBox key={title} title={title}>
+            {sucaraLanding.map(({ title, icon: Icon, slug }) => {
+              const label = (
                 <h2>
                   <Icon className="ak-category-icon" aria-hidden="true" />
                   <span>{title}</span>
                 </h2>
-              </BrewingBox>
-            ))}
+              );
+              return slug ? (
+                <SpookyLink key={title} href={`/sucara/${slug}`} className="menu-box">
+                  {label}
+                </SpookyLink>
+              ) : (
+                <BrewingBox key={title} title={title}>
+                  {label}
+                </BrewingBox>
+              );
+            })}
           </nav>
         </div>
       </main>

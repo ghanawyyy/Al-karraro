@@ -70,3 +70,94 @@
   .ak-sucara .container { padding: 15px; }
   .ak-sucara .menu-box { padding: 12px 20px; }
 }
+
+/*
+ * Suc'ara section pages (source: /menu/sucara/<slug>/): 256px petal-pattern header, the 100px "S"
+ * emblem, filters in Avant Garde Book 13px/700 rgb(141, 143, 144), titles Avant Garde Medium 13px
+ * rgb(105, 93, 118) on rgb(246, 244, 246) chips, prices with a CSS "$" suffix, notes 12px.
+ */
+.ak-sucara-section {
+  background-color: #12091a;
+}
+
+.ak-sucara-banner {
+  width: 100%;
+  height: clamp(256px, 26vw, 376px);
+  background: url("/sites/alforno/sucara/sucara-banner-spooky.jpg") center / cover no-repeat;
+  mask-image: linear-gradient(to bottom, #000 72%, transparent);
+}
+
+.ak-sucara-emblem {
+  margin: 28px 0 18px;
+  text-align: center;
+}
+
+.ak-sucara-emblem img {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  filter: drop-shadow(0 0 14px rgb(232 114 28 / 45%));
+}
+
+.ak-sucara-section .ak-tab {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  color: rgb(214 200 232 / 72%);
+}
+
+.ak-sucara-section .ak-tab:hover {
+  color: rgb(236 226 248);
+}
+
+.ak-sucara-section .ak-tab-active {
+  color: var(--ak-pumpkin);
+}
+
+.ak-sucara-section .ak-menu-panel {
+  border-color: rgb(170 140 210 / 30%);
+  background: rgb(18 9 26 / 80%);
+  box-shadow: inset 0 0 40px rgb(91 31 115 / 45%), 0 10px 40px rgb(0 0 0 / 45%);
+}
+
+.ak-sucara-section .ak-tab-heading {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.ak-sucara-section .ak-item-head {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.ak-sucara-section .ak-item-chip {
+  background: rgb(150 120 190 / 24%);
+  color: rgb(236 226 248);
+}
+
+.ak-sucara-section .ak-item-leader {
+  border-bottom-color: rgb(190 160 230 / 45%);
+}
+
+.ak-sucara-section .ak-item-desc {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.75px;
+  color: rgb(220 205 240 / 80%);
+}
+
+@media (max-width: 767px) {
+  .ak-sucara-section .ak-tab-heading { font-size: 20px; letter-spacing: 3px; }
+}
+
+.ak-sucara .ak-back,
+.ak-sucara-section .ak-rail-chip,
+.ak-sucara-section .ak-pager-link {
+  font-family: Questrial, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.75px;
+}
